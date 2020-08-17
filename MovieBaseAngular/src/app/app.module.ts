@@ -10,10 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http'
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieService } from './movie.service';
-import { RegistrationComponent } from './registration/registration.component';
 import { SearchDeleteComponent } from './search-delete/search-delete.component';
-import { UserRegistrationService } from './user-registration.service';
-import { UserListComponent } from './user-list/user-list.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieAddComponent } from './movie-add/movie-add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,9 +36,7 @@ import { MaterialModule } from './material/material.module';
     MovieDetailComponent,
     MessagesComponent,
     MovieSearchComponent,
-    RegistrationComponent,
     SearchDeleteComponent,
-    UserListComponent,
     MoviesListComponent,
     MovieAddComponent
   ],

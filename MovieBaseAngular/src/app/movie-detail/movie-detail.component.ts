@@ -18,6 +18,7 @@ interface Genre {
 export class MovieDetailComponent implements OnInit {
   
   @Input() movie: Movie;
+
   constructor(
     private route: ActivatedRoute,
     private movieService: MovieService,
@@ -40,12 +41,15 @@ export class MovieDetailComponent implements OnInit {
     {value: 'History', viewValue: 'History'}
   ];
 
-  
 
   ngOnInit(): void {
     this.getMovie();
   } 
 
+  selectedMovie(): void {
+    this.moviesList.onSelect(this.movie);
+  }
+  
   getMovie(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.movieService.getMovie(id)
@@ -64,7 +68,6 @@ export class MovieDetailComponent implements OnInit {
     this.location.back();
   }
   
-
 
 
 }

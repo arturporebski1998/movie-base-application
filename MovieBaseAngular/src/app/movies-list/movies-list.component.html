@@ -3,7 +3,6 @@
     <ul class="movies">
       
       <li *ngFor="let movie of movies"
-        routerLink="/details"
         [class.selected]="movie === selectedMovie"
         (click)="onSelect(movie)">
         
@@ -20,7 +19,6 @@
     </ul> -->
 
     <button mat-raised-button routerLink="/movies/add" color="primary" >Add New Movie</button>
-    <button mat-raised-button routerLink="/details" color="primary" >Details</button>
     <app-movie-detail [movie]="selectedMovie"></app-movie-detail>
 
     
