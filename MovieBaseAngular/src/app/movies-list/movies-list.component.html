@@ -1,0 +1,84 @@
+
+    <h1>List of movies</h1>
+    <ul class="movies">
+      
+      <li *ngFor="let movie of movies"
+        routerLink="/details"
+        [class.selected]="movie === selectedMovie"
+        (click)="onSelect(movie)">
+        
+        <div style="text-align:center">{{movie.title}}</div>
+      </li>
+    </ul> 
+
+    <!-- <ul class="movies">
+      <li *ngFor="let movie of movies">
+        <a routerLink="/detail/{{movie.id}}">
+          <span class="badge">{{movie.id}}</span> {{movie.title}}
+        </a>
+      </li>
+    </ul> -->
+
+    <button mat-raised-button routerLink="/movies/add" color="primary" >Add New Movie</button>
+    <button mat-raised-button routerLink="/details" color="primary" >Details</button>
+    <app-movie-detail [movie]="selectedMovie"></app-movie-detail>
+
+    
+    <!-- 
+<h1>List of movies</h1>
+<div class="card my-5">
+    <div class="card-body">
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Director</th>
+            <th scope="col">Rate</th>
+            <th scope="col">Country</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let movie of movies">
+
+            <button class="btn btn danger"
+            (click)="deleteMovie(movie)">X</button>
+            <td>
+              <input [(ngModel)]="movie.id" placeholder="id"/>
+            </td>
+            <td>
+              <input [(ngModel)]="movie.title" placeholder="Title"/>
+            </td>
+            <td>
+              <input [(ngModel)]="movie.genre" placeholder="Genre"/>
+            </td>
+            <td>
+              <input [(ngModel)]="movie.director" placeholder="Director"/>
+            </td>
+            <td>
+              <input [(ngModel)]="movie.avgRate" placeholder="Rate"/>
+            </td>
+            <td>
+              <input [(ngModel)]="movie.country" placeholder="Country"/>
+            </td>
+            <td>
+              <input [(ngModel)]="movie.description" placeholder="Description"/>
+            </td>
+            <button class="btn btn submit"
+            (click)="update(movie)">update</button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <nav>
+    <a routerLink="/movies/add">Add New Movie</a>
+    </nav>
+
+    -->
+ 
+
+  
