@@ -2,37 +2,24 @@
 package practices.registration.Model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Entity
-@Data
+@Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String firstName;
-    private String lastName;
+public class User implements Serializable {
 
-    private String username;
-    private String password;
-
-    private String email;
-    private String token;
 
     public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -44,9 +31,6 @@ public class User {
         this.email = email;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -80,12 +64,16 @@ public class User {
         this.password = password;
     }
 
-    public String getToken() {
-        return token;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    private String firstName;
+    private String lastName;
 
-    public void setToken(String token) {
-        this.token = token;
-    }
+    private String username;
+    private String password;
+
+    private String email;
+
 }
 

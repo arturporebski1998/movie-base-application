@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import practices.movie.Model.Movie;
 import practices.registration.Model.User;
 import practices.registration.Repository.UserRepository;
 
@@ -29,10 +30,15 @@ public class UserController {
         return new ResponseEntity(this.userRepository.findById(userId), HttpStatus.OK);
     }
 
+    //get user by email
+    @RequestMapping(value = "/users/{email}", method = RequestMethod.GET)
+    public ResponseEntity<User> getUserByEmail(@PathVariable(value = "email") String userEmail) {
+        return new ResponseEntity(this.userRepository.findByEmail(userEmail), HttpStatus.OK);
+    }
+
     //post users
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     public ResponseEntity<User> saveUser(@RequestBody User user) {
-        userRepository.save(user);
         return new ResponseEntity(this.userRepository.save(user), HttpStatus.OK);
     }
 

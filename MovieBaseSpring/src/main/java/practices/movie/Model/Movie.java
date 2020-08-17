@@ -21,12 +21,6 @@ public class Movie implements Serializable {
         this.id = id;
     }
 
-    //public int getDate() { return date; }
-
-    //public void setDate(int date) {
-       // this.date = date;
-   // }
-
     public double getAvgRate() { return avgRate; }
 
     public void setAvgRate(double avgRate) {
@@ -75,9 +69,6 @@ public class Movie implements Serializable {
 
     @Column
     private String title;
-
-    //@Column
-    //private int date;
 
     @Column
     double avgRate;
