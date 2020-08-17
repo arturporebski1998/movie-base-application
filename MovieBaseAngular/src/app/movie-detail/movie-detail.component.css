@@ -21,6 +21,10 @@ button{
   color: #000000;
 }
 
+.mat-form-field .genre.viewValue {
+  color: #000000;
+}
+
 .mat-focused .placeholder {
   color: rgb(85, 2, 85);
 }

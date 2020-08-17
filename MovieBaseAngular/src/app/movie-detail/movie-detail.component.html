@@ -2,13 +2,13 @@
   <h1>{{movie.title}}</h1>
 
   <div>
-    <mat-form-field style="width:22vw">
+    <mat-form-field style="width:30vw">
       <input matInput [(ngModel)]="movie.title" name="title" id="title">
       <mat-placeholder class="placeholder">You can update movie title</mat-placeholder>
     </mat-form-field>
     <br>
 
-    <mat-form-field style="width:22vw">
+    <mat-form-field style="width:30vw">
       <mat-placeholder class="placeholder">You can update movie genre</mat-placeholder>
       <mat-select [(ngModel)]="movie.genre" name="genre">
         <mat-option *ngFor="let genre of genres" [value]="genre.value">
@@ -18,30 +18,30 @@
     </mat-form-field>
     <br>
 
-    <mat-form-field style="width:22vw">
+    <mat-form-field style="width:30vw">
       <input matInput [(ngModel)]="movie.director" name="director" id="director">
       <mat-placeholder class="placeholder">You can update movie director</mat-placeholder>
     </mat-form-field>
     <br>
 
-    <mat-form-field style="width:22vw">
+    <mat-form-field style="width:30vw">
       <input matInput [(ngModel)]="movie.avgRate" name="rate" id="rate">
       <mat-placeholder class="placeholder">You can update movie average rate</mat-placeholder>
     </mat-form-field>
     <br>
 
-    <mat-form-field style="width:22vw">
+    <mat-form-field style="width:30vw">
       <input matInput [(ngModel)]="movie.country" name="country" id="country">
       <mat-placeholder class="placeholder">You can update movie origin country </mat-placeholder>
     </mat-form-field>
     <br>
 
-    <mat-form-field style="width:22vw">
-      <input matInput [(ngModel)]="movie.description" name="description" id="description">
-      <mat-placeholder class="placeholder">You can update movie description</mat-placeholder>
+    <mat-form-field style="width:30vw">
+      <textarea matInput [(ngModel)]="movie.description" name="description" id="description">
+      <mat-placeholder class="placeholder">You can update movie description</mat-placeholder></textarea>
     </mat-form-field>
     <br><br>
-    
+
     <button mat-raised-button color="primary" class="delete" title="delete movie" (click)="deleteMovie(movie)">Delete
       Movie
     </button>
