@@ -1,99 +1,52 @@
-
 <div *ngIf="movie">
-    <h1>{{movie.title}}</h1>
+  <h1>{{movie.title}}</h1>
+
+  <div>
+    <mat-form-field style="width:22vw">
+      <input matInput [(ngModel)]="movie.title" name="title" id="title">
+      <mat-placeholder class="placeholder">You can update movie title</mat-placeholder>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field style="width:22vw">
+      <mat-placeholder class="placeholder">You can update movie genre</mat-placeholder>
+      <mat-select [(ngModel)]="movie.genre" name="genre">
+        <mat-option *ngFor="let genre of genres" [value]="genre.value">
+          {{genre.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field style="width:22vw">
+      <input matInput [(ngModel)]="movie.director" name="director" id="director">
+      <mat-placeholder class="placeholder">You can update movie director</mat-placeholder>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field style="width:22vw">
+      <input matInput [(ngModel)]="movie.avgRate" name="rate" id="rate">
+      <mat-placeholder class="placeholder">You can update movie average rate</mat-placeholder>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field style="width:22vw">
+      <input matInput [(ngModel)]="movie.country" name="country" id="country">
+      <mat-placeholder class="placeholder">You can update movie origin country </mat-placeholder>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field style="width:22vw">
+      <input matInput [(ngModel)]="movie.description" name="description" id="description">
+      <mat-placeholder class="placeholder">You can update movie description</mat-placeholder>
+    </mat-form-field>
+    <br><br>
     
-    <!-- <div><span>Movie number: </span>{{movie.id}}</div> -->
-    <div>
-        <mat-form-field style="width:22vw">
-          <input matInput [(ngModel)]="movie.title" name="title" id="title">
-          <mat-placeholder class="placeholder">You can update movie title</mat-placeholder>
-        </mat-form-field>
-      <br>
-      <mat-form-field style="width:22vw">
-        <mat-placeholder class="placeholder">You can update movie genre</mat-placeholder>
-        <mat-select [(ngModel)]="movie.genre" name="genre">
-          <mat-option *ngFor="let genre of genres" [value]="genre.value" >
-            {{genre.viewValue}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <br>
-        <mat-form-field style="width:22vw">
-          <input matInput [(ngModel)]="movie.director" name="director" id="director">
-          <mat-placeholder class="placeholder">You can update movie director</mat-placeholder>
-        </mat-form-field>
-      <br>
-        <mat-form-field style="width:22vw">
-          <input matInput [(ngModel)]="movie.avgRate" name="rate" id="rate">
-          <mat-placeholder class="placeholder">You can update movie average rate</mat-placeholder>
-        </mat-form-field>
-      <br>
-        <mat-form-field style="width:22vw">
-          <input matInput [(ngModel)]="movie.country" name="country" id="country">
-          <mat-placeholder class="placeholder">You can update movie origin country </mat-placeholder>
-        </mat-form-field>
-      <br>
-        <mat-form-field style="width:22vw">
-          <input matInput [(ngModel)]="movie.description" name="description" id="description">
-          <mat-placeholder class="placeholder">You can update movie description</mat-placeholder>
-        </mat-form-field>
-      <br><br>
-      <button mat-raised-button color="primary" class="delete" title="delete movie"
-          (click)="deleteMovie(movie)">Delete Movie
-        </button>
-      <button mat-raised-button color="primary" class="btn btn submit"
-          (click)="updateMovie(movie)">Update Movie
-        </button>
-    </div>
+    <button mat-raised-button color="primary" class="delete" title="delete movie" (click)="deleteMovie(movie)">Delete
+      Movie
+    </button>
+    <button mat-raised-button color="primary" class="btn btn submit" (click)="updateMovie(movie)">Update Movie
+    </button>
+  </div>
 
 
-
-
-
-
-<!--     
-    
-    
-    <p *ngIf="movie.title=='Tenet'">  
-      <br>
-      <img class="img-responsive"  src="assets\img\tenet.jpg" width="300" style="vertical-align:middle;margin:0px 0px"> 
-  </p>  
-
-    <p *ngIf="movie.title=='Dunkirk'">  
-      <br>
-      <img class="img-responsive"  src="assets\img\dunkirk.jpg" width="300"> 
-  </p>  
-
-    <p *ngIf="movie.title=='Interstellar'">  
-      <br>
-      <img class="img-responsive"  src="assets\img\interstellar.jpg" width="300"> 
-  </p>  
-
-    <p *ngIf="movie.title=='The Dark Knight Rises'">  
-      <br>
-      <img class="img-responsive"  src="assets\img\darkknightrises.jpg" width="300"> 
-  </p>  
-
-    <p *ngIf="movie.title=='Inception'">  
-      <br>
-      <img class="img-responsive"  src="assets\img\inception.jpg" width="300"> 
-  </p>  
-
-    <p *ngIf="movie.title=='The Dark Knight'">  
-      <br>
-      <img class="img-responsive"  src="assets\img\darkknight.jpg" width="300"> 
-  </p>  
-
-    <p *ngIf="movie.title=='The Prestige'">  
-      <br>
-      <img class="img-responsive"  src="assets\img\prestige.jpg" width="300"> 
-  </p>  
-
-    <p *ngIf="movie.title=='Batman Begins'">  
-      <br>
-      <img class="img-responsive"  src="assets\img\batman.jpg" width="300"> 
-  </p>  
-
-  </div> 
-
-  -->

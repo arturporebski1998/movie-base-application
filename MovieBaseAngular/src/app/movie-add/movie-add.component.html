@@ -1,106 +1,46 @@
 <h1 style="text-align: center">Movies panel</h1>
 
-  <form class="example-form">
+<form class="example-form">
+  <fieldset>
+  <mat-form-field style="width:40vw">
+    <input matInput [(ngModel)]="movie.title" name="title" id="title">
+    <mat-placeholder class="placeholder">Enter movie title</mat-placeholder>
+  </mat-form-field>
 
-    <mat-form-field style="width:40vw" >
-      <input matInput [(ngModel)]="movie.title" name="title" id="title">
-      <mat-placeholder class="placeholder">Enter movie title</mat-placeholder>
-    </mat-form-field>
+  <mat-form-field style="width:40vw">
+    <mat-placeholder class="placeholder">Choose movie genre</mat-placeholder>
+    <mat-select [(ngModel)]="movie.genre" name="genre" style="width:40vw">
+      <mat-option *ngFor="let genre of genres" [value]="genre.value">
+        {{genre.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-        <mat-form-field style="width:40vw">
-          <mat-placeholder class="placeholder">Choose movie genre</mat-placeholder>
-          <mat-select [(ngModel)]="movie.genre" name="genre" style="width:40vw">
-            <mat-option *ngFor="let genre of genres" [value]="genre.value" >
-              {{genre.viewValue}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+  <mat-form-field style="width:40vw">
+    <input matInput [(ngModel)]="movie.genre" name="genre" id="genre">
+    <mat-placeholder class="placeholder">Enter movie genre</mat-placeholder>
+  </mat-form-field>
 
-        <mat-form-field style="width:40vw">
-          <input matInput [(ngModel)]="movie.genre" name="genre" id="genre">
-          <mat-placeholder class="placeholder">Enter movie genre</mat-placeholder>
-        </mat-form-field>
+  <mat-form-field style="width:40vw">
+    <input matInput [(ngModel)]="movie.director" name="director" id="director">
+    <mat-placeholder class="placeholder">Enter movie director</mat-placeholder>
+  </mat-form-field>
 
-                <mat-form-field style="width:40vw">
-                  <input matInput [(ngModel)]="movie.director" name="director" id="director">
-                  <mat-placeholder class="placeholder">Enter movie director</mat-placeholder>
-                </mat-form-field>
+  <mat-form-field style="width:40vw">
+    <input matInput [(ngModel)]="movie.avgRate" name="rate" id="rate">
+    <mat-placeholder class="placeholder">Enter movie average rate</mat-placeholder>
+  </mat-form-field>
 
-                    <mat-form-field style="width:40vw">
-                      <input matInput [(ngModel)]="movie.avgRate" name="rate" id="rate">
-                      <mat-placeholder class="placeholder">Enter movie average rate</mat-placeholder>
-                    </mat-form-field>
+  <mat-form-field style="width:40vw">
+    <input matInput [(ngModel)]="movie.country" name="country" id="country">
+    <mat-placeholder class="placeholder">Enter movie origin country</mat-placeholder>
+  </mat-form-field>
 
-                        <mat-form-field style="width:40vw">
-                          <input matInput [(ngModel)]="movie.country" name="country" id="country">
-                          <mat-placeholder class="placeholder">Enter movie origin country</mat-placeholder>
-                        </mat-form-field>
+  <mat-form-field style="width:40vw">
+    <mat-placeholder class="placeholder">Enter movie description</mat-placeholder>
+    <textarea matInput [(ngModel)]="movie.description" name="description" id="description"></textarea>
+  </mat-form-field>
 
-                            <mat-form-field style="width:40vw">
-                              <mat-placeholder class="placeholder">Enter movie description</mat-placeholder>
-                              <textarea matInput [(ngModel)]="movie.description" name="description" id="description">
-                                </textarea>
-                            </mat-form-field>
-                
-                            <button mat-raised-button color="primary" routerLink="/movies" (click)="saveMovie()">Submit</button>
+  <button mat-raised-button color="primary" routerLink="/movies" (click)="saveMovie()">Submit</button>
 
-  
-  <!-- 
-  <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-                    
-  
-                    <div class="form-group">
-                        <label for="Title"><span class="req">* </span> Title: </label>
-                        <input required type="text" [(ngModel)]="movie.title" name="title" id="title"
-                            class="form-control phone" maxlength="28" placeholder="Enter movie title..." />
-                    </div>
-                    
-  
-                    <div class="form-group">
-                        <label for="Genre"><span class="req">* </span> Genre: </label>
-                        <input class="form-control" type="text" [(ngModel)]="movie.genre" name="genre" id="txt" required
-                            placeholder="Enter movie genre..." />
-                    </div>
-  
-                    <div class="form-group">
-                      <label for="Director"><span class="req">* </span> Director: </label>
-                      <input class="form-control" type="text" [(ngModel)]="movie.director" name="director" id="txt" required
-                          placeholder="Enter movie director..." />
-                  </div>
-  
-                    <div class="form-group">
-                      <label for="Rate"><span class="req">* </span> Rate : </label>
-                      <input class="form-control" type="text" [(ngModel)]="movie.avgRate" name="avgRate" id="txt"
-                          placeholder="Enter the movie average rate..." required />
-                      <div id="errLast"></div>
-                  </div>
-  
-                    <div class="form-group">
-                      <label for="Country"><span class="req">* </span> Country: </label>
-                      <input class="form-control" type="text" [(ngModel)]="movie.country" name="country" id="txt" required
-                          placeholder="Enter movie origin country..." />
-                  </div>
-  
-  
-                  <div class="form-group">
-                    <label for="Description"><span class="req">* </span> Description: </label>
-                    <input class="form-control" type="text" [(ngModel)]="movie.description" name="description" id="txt" required
-                        placeholder="Enter short movie description..." />
-                </div>
-  
-                  <br>
-                    <div class="form-group">
-                        <input class="btn btn-success" type="submit" name="submit_reg" value="Submit" (click)="saveMovie()">
-                    </div><br>
-  
-                
-        </div>
-  
-    </div>
-  </div>
-  <br><br>
-
-  -->
-  
+</fieldset>

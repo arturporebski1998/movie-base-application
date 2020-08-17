@@ -25,31 +25,26 @@ export class MoviesListComponent implements OnInit {
     this.selectedMovie = movie;
   }
 
-  reloadMovies() : void {
+  reloadMovies(): void {
     this.movieService.getMovies().subscribe(data => {
       this.movies = data;
     });
   }
 
   deleteMovie(movie: Movie): void {
-    this.movieService.deleteMovie(movie).subscribe(()=>{
+    this.movieService.deleteMovie(movie).subscribe(() => {
       this.reloadMovies();
     });
   }
 
   update(movie: Movie): void {
-    this.movieService.updateMovie(movie).subscribe(movie=>{
-    this.reloadMovies();
-    },err=>{
-      
-    });
+    this.movieService.updateMovie(movie).subscribe(movie => {
+      this.reloadMovies();
+    }, err => {});
   }
 
   goBack(): void {
     this.location.back();
   }
-
-  
-
 
 }

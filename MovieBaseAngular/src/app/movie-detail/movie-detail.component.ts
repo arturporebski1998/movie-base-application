@@ -16,7 +16,7 @@ interface Genre {
   styleUrls: ['./movie-detail.component.css']
 })
 export class MovieDetailComponent implements OnInit {
-  
+
   @Input() movie: Movie;
 
   constructor(
@@ -24,32 +24,32 @@ export class MovieDetailComponent implements OnInit {
     private movieService: MovieService,
     private location: Location,
     private moviesList: MoviesListComponent,
-    private router: Router, 
-  ) {}
+    private router: Router,
+  ) { }
 
   genres: Genre[] = [
-    {value: 'Action', viewValue: 'Action'},
-    {value: 'Adventure', viewValue: 'Adventure'},
-    {value: 'Comedy', viewValue: 'Comedy'},
-    {value: 'Fantasy', viewValue: 'Fantasy'},
-    {value: 'Horror', viewValue: 'Horror'},
-    {value: 'Mystery', viewValue: 'Mystery'},
-    {value: 'Romance', viewValue: 'Romance'},
-    {value: 'Thriller', viewValue: 'Thriller'},
-    {value: 'Western', viewValue: 'Western'},
-    {value: 'Scifi', viewValue: 'Sci-Fi'},
-    {value: 'History', viewValue: 'History'}
+    { value: 'Action', viewValue: 'Action' },
+    { value: 'Adventure', viewValue: 'Adventure' },
+    { value: 'Comedy', viewValue: 'Comedy' },
+    { value: 'Fantasy', viewValue: 'Fantasy' },
+    { value: 'Horror', viewValue: 'Horror' },
+    { value: 'Mystery', viewValue: 'Mystery' },
+    { value: 'Romance', viewValue: 'Romance' },
+    { value: 'Thriller', viewValue: 'Thriller' },
+    { value: 'Western', viewValue: 'Western' },
+    { value: 'Scifi', viewValue: 'Sci-Fi' },
+    { value: 'History', viewValue: 'History' }
   ];
 
 
   ngOnInit(): void {
     this.getMovie();
-  } 
+  }
 
   selectedMovie(): void {
     this.moviesList.onSelect(this.movie);
   }
-  
+
   getMovie(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.movieService.getMovie(id)
@@ -67,7 +67,7 @@ export class MovieDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-  
+
 
 
 }

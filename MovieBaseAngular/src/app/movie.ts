@@ -17,5 +17,5 @@ export class Movie {
       avgRate: number,
       country: string,
       description: string,
-      ){ }
+      ){}
   }

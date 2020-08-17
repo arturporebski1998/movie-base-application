@@ -1,12 +1,14 @@
-
 <mat-toolbar color="primary">
-  <div ><h1>{{title | uppercase}}</h1></div>
+  <div>
+    <h1>{{title | uppercase}}</h1>
+  </div>
 </mat-toolbar><br>
+
 <body>
-  <button mat-raised-button routerLink="/dashboard" color="primary" >Top Rated Movies</button>
+  <button mat-raised-button routerLink="/dashboard" color="primary">Top Rated Movies</button>
   <button mat-raised-button routerLink="/movies" color="primary">Movies</button>
-  <button mat-raised-button routerLink="/users" color="primary">Users</button>
-  
-<router-outlet></router-outlet>
-<app-messages></app-messages>
+  <button mat-raised-button routerLink="/register" color="primary">Registration</button>
+  <button mat-raised-button routerLink="/users" color="primary">Users List</button>
+
+  <router-outlet></router-outlet>
 </body>

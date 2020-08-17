@@ -11,40 +11,30 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class MoviesComponent implements OnInit {
-  
-  movie: Movie = new Movie(0,'','','',0,'','');
-  
+
+  movie: Movie = new Movie(0, '', '', '', 0, '', '');
+
   constructor(
-    private route: ActivatedRoute, 
-    private router: Router, 
-    private movieService: MovieService) { 
-      this.movie = new Movie(0,'','','',0,'','');
-     }
+    private route: ActivatedRoute,
+    private router: Router,
+    private movieService: MovieService) {
+    this.movie = new Movie(0, '', '', '', 0, '', '');
+  }
 
-     ngOnInit() {
-     }
-
-    //  onSubmit() {
-    //   this.movieService.addMovie(this.movie).subscribe(result => this.gotoMovieList());
-    // }
-
-    // gotoMovieList() {
-    //   this.router.navigate(['/movies']);
-    // }
-
-    //saveMovie(): void {
-    //  this.movieService.addMovie(this.movie).subscribe();
-    //}
-
-    
+  ngOnInit() {
+  }
 
 
-  
-   
- 
 
 
-  
+
+
+
+
+
+
+
+
 
 
 }
