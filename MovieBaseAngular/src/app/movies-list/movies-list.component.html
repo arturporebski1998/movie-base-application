@@ -3,20 +3,22 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <div class="container">
-<div class="container">
     <div class="row col-md-6 col-md-offset-2 custyle">
     <table class="table table-striped custab">
     <thead>
         <tr>
             <th>Movie Title</th>
-            <th>Action</th>
+            <th>Director</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let movie of movies" [class.selected]="movie === selectedMovie"
-        (click)="onSelect(movie)">
-            <td>{{movie.title}}</td>
-            <td class="text-center"><button class="btn btn-danger btn-xs" (click)="deleteMovie(movie)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+        <tr *ngFor="let movie of movies" [class.selected]="movie === selectedMovie" >
+            <td><b>{{movie.title}}</b></td>
+            <td>{{movie.director}}</td>
+            <td class="text-center"><button class="btn btn-danger" (click)="deleteMovie(movie)"><span class="glyphicon glyphicon-remove"></span> Delete</button></td>
+            <td class="text-center"><button class="btn btn-success" (click)="onSelect(movie)"> Details</button></td>
           </tr>
     </tbody>
     </table>
@@ -27,6 +29,7 @@
 
 <app-movie-detail [movie]="selectedMovie"></app-movie-detail>
 
+    
     
  
 

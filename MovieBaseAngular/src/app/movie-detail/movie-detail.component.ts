@@ -20,11 +20,9 @@ export class MovieDetailComponent implements OnInit {
   @Input() movie: Movie;
 
   constructor(
-    private route: ActivatedRoute,
     private movieService: MovieService,
     private location: Location,
     private moviesList: MoviesListComponent,
-    private router: Router,
   ) { }
 
   genres: Genre[] = [
@@ -43,17 +41,15 @@ export class MovieDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getMovie();
+    this.selectedMovie();
   }
 
   selectedMovie(): void {
     this.moviesList.onSelect(this.movie);
   }
 
-  getMovie(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.movieService.getMovie(id)
-      .subscribe(movie => this.movie = movie);
+  getMovie(movie: Movie): void {
+    this.movieService.getMovie(movie);
   }
 
   updateMovie(movie: Movie): void {

@@ -15,7 +15,6 @@ import { MaterialModule } from './modules/material.module';
 import { RegistrationComponent } from './registration/registration.component';
 import { UserRegistrationService } from './user-registration.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { TestComponent } from './test/test.component';
 
 
 @NgModule({
@@ -39,7 +38,6 @@ import { TestComponent } from './test/test.component';
     MoviesListComponent,
     MovieAddComponent,
     RegistrationComponent,
-    TestComponent,
   ],
   
   providers: [ MovieService, UserRegistrationService ],

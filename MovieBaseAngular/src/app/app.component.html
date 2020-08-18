@@ -1,14 +1,13 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="navbar">
+  <div>{{title | uppercase}} &nbsp; </div>
   <div>
-    <h1>{{title | uppercase}}</h1>
+    <button mat-raised-button routerLink="/dashboard" color="grey">Top Rated Movies</button>
+    <button mat-raised-button routerLink="/movies" color="grey">Movies</button>
+    <button mat-raised-button routerLink="/register" color="grey">Registration</button>
+    <button mat-raised-button routerLink="/users" color="grey">Users List</button>
   </div>
-</mat-toolbar><br>
+</mat-toolbar>
 
 <body>
-  <button mat-raised-button routerLink="/dashboard" color="primary">Top Rated Movies</button>
-  <button mat-raised-button routerLink="/movies" color="primary">Movies</button>
-  <button mat-raised-button routerLink="/register" color="primary">Registration</button>
-  <button mat-raised-button routerLink="/users" color="primary">Users List</button>
-
   <router-outlet></router-outlet>
 </body>

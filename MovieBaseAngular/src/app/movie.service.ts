@@ -42,9 +42,9 @@ export class MovieService {
     return this.http.put<Movie>(url, movie, this.httpOptions);
   }
 
-
-   getMovie(id: number): Observable<Movie> {
-    const url = `${this.moviesUrl}/${id}`;
+  //get by id 
+   getMovie(movie: Movie): Observable<Movie> {
+    const url = `${this.moviesUrl}/${movie.id}`;
     return this.http.get<Movie>(url);
   }
 
