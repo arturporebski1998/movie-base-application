@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import practices.movie.Model.Movie;
 import practices.registration.Model.User;
 import practices.registration.Repository.UserRepository;
 
@@ -49,12 +48,14 @@ public class UserController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+
     //update user
     @RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId, @RequestBody User userDetails) {
+    public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId, @RequestBody User user) {
         Optional<User> optUser = userRepository.findById(userId);
         if (optUser.isPresent()) {
-            return new ResponseEntity<>(this.userRepository.save(userDetails), HttpStatus.OK);
+            user.setId(userId);
+            return new ResponseEntity<>(this.userRepository.save(user), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }

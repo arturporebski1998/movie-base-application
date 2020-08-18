@@ -18,7 +18,7 @@ public class MovieController {
     @Autowired
     private MovieRepository movieRepository;
 
-    //get movie
+    //get movies
     @RequestMapping(value = "/movies", method = RequestMethod.GET)
     public ResponseEntity<LinkedList<Movie>> getAllMovies() {
         return new ResponseEntity(this.movieRepository.findAll(), HttpStatus.OK);
@@ -31,43 +31,38 @@ public class MovieController {
     }
 
     //save movie
-    // more descriptive, like addMovie, make sure the movie that arrives does not have an Id
+    // make sure the movie that arrives does not have an Id
     // otherwise you will update existing record
+    /// done - it does not have id
     @RequestMapping(value = "/movies", method = RequestMethod.POST)
-    public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
-        return new ResponseEntity(this.movieRepository.save(movie), HttpStatus.OK);
+    public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
+        return new ResponseEntity<>(this.movieRepository.save(movie), HttpStatus.OK);
     }
 
     // update movie
-    // make sure that movieDetails has the same id as the movieId or remove movieId from endpoint. Put tells us it is an update, so we know that movieDetails has ID
+    //make sure that movie has the same id as the movieId or remove movieId from endpoint. Put tells us it is an update, so we know that movie has ID
+    ///done - value od id not changing
     @RequestMapping(value = "/movies/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<Movie> updateMovie(@PathVariable(value = "id") Long movieId, @RequestBody Movie movieDetails) {
+    public ResponseEntity<Movie> updateMovie(@PathVariable(value = "id") Long movieId, @RequestBody Movie movie) {
         Optional<Movie> optMovie = movieRepository.findById(movieId);
         if (optMovie.isPresent()) {
-            return new ResponseEntity<>(this.movieRepository.save(movieDetails), HttpStatus.OK);
+            movie.setId(movieId);
+            return new ResponseEntity<>(this.movieRepository.save(movie), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
 
     //delete movie
-    // make sure the movie exists in DB
     @RequestMapping(value = "/movies/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<Movie> deleteMovie(@PathVariable("id") Long movieId) {
-        movieRepository.deleteById(movieId);
-        return new ResponseEntity(HttpStatus.OK);
+        Optional<Movie> optMovie = movieRepository.findById(movieId);
+        if (optMovie.isPresent()) {
+            movieRepository.deleteById(movieId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
     }
-
-
-//    @RequestMapping(value = "/movies/{id}", method = RequestMethod.PUT)
-//    public void updateMovie(@PathVariable("id") Long movieId, @RequestBody Movie movie) {
-//        Movie movieUp =  movieRepository.getOne(movieId);
-//        if (movie == null) {
-//            throw new IllegalStateException("no product with id" + movieId);
-//        }
-//        movie.setId(movieId);
-//        movieRepository.save(movie);
-//    }
-
-
 }
