@@ -5,8 +5,8 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieAddComponent } from './movie-add/movie-add.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
