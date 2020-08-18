@@ -1,13 +1,7 @@
 body {
     padding-top:50px;
 }
-fieldset {
-    border: thin solid #ccc; 
-    border-radius: 4px;
-    padding: 20px;
-    padding-left: 40px;
-    background: #fbfbfb;
-}
+
 legend {
    color: #678;
 }
@@ -21,3 +15,52 @@ span.req {
     color:maroon;
     font-size: 112%;
 }
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: black !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: black !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: black !important;
+  }
+  
+
+
+.mat-form-field .placeholder {
+    color: #000000;
+}
+
+.mat-form-field {
+  color: #000000;
+}
+
+  .mat-focused .placeholder {
+    color: rgb(85, 2, 85);
+}
+
+fieldset {
+  border: thin solid #ccc; 
+  border-radius: 4px;
+  padding: 20px;
+  padding-left: 40px;
+  background: #fbfbfb;
+}
+
+

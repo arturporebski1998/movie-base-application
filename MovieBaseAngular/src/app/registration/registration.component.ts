@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { UserRegistrationService } from '../services/user-registration-service/user-registration.service';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
+
 
 @Component({
   selector: 'app-registration',
@@ -8,6 +11,8 @@ import { UserRegistrationService } from '../services/user-registration-service/u
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
+
 
   user: User = new User(0,'','','','','');
 

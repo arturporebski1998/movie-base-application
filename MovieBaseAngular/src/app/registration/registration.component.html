@@ -3,49 +3,34 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <br><br><br>
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <form>
-                <fieldset>
-                    <br>
-                    <div class="form-group">
-                        <label> First Name: </label>
-                        <input required type="text" [(ngModel)]="user.firstName" name="firstName"
-                            class="form-control phone" placeholder="Enter your first name..." />
-                    </div>
+<form class="example-form">
+<fieldset>
+    <h1 style="text-align: center">Registration panel</h1><br>
+    <mat-form-field style="width:33vw">
+        <input matInput [(ngModel)]="user.firstName" name="firstName" id="firstName">
+        <mat-placeholder class="placeholder">First name</mat-placeholder>
+    </mat-form-field><br>
 
-                    <div class="form-group">
-                        <label> Last Name: </label>
-                        <input required type="text" [(ngModel)]="user.lastName" name="lastName"
-                            class="form-control phone" placeholder="Enter your last name..." />
-                    </div>
+    <mat-form-field style="width:33vw">
+        <input matInput [(ngModel)]="user.lastName" name="lastName" id="lastName">
+        <mat-placeholder class="placeholder">Last name</mat-placeholder>
+    </mat-form-field><br>
 
-                    <div class="form-group">
-                        <label> E-mail: </label>
-                        <input required type="text" [(ngModel)]="user.email" name="email" class="form-control phone"
-                            placeholder="Enter your email..." />
-                    </div>
+    <mat-form-field style="width:33vw">
+        <input matInput [(ngModel)]="user.email" name="email" id="email">
+        <mat-placeholder class="placeholder">E-mail</mat-placeholder>
+    </mat-form-field><br>
 
-                    <div class="form-group">
-                        <label> Username: </label>
-                        <input required type="text" [(ngModel)]="user.username" name="username"
-                            class="form-control phone" placeholder="Enter your username..." />
-                    </div>
+    <mat-form-field style="width:33vw">
+        <input matInput [(ngModel)]="user.username" name="username" id="username">
+        <mat-placeholder class="placeholder">Username</mat-placeholder>
+    </mat-form-field><br>
 
-                    <div class="form-group">
-                        <label> Password: </label>
-                        <input required type="text" [(ngModel)]="user.password" name="password"
-                            class="form-control phone" placeholder="Enter your password..." />
-                    </div>
+    <mat-form-field style="width:33vw">
+        <input matInput [(ngModel)]="user.password" name="password" id="password">
+        <mat-placeholder class="placeholder">Password</mat-placeholder>
+    </mat-form-field><br>
 
-                    <div>
-                        <button mat-raised-button routerLink="/users" (click)="registerNow()"
-                            color="primary">Register</button>
-                    </div>
-
-                </fieldset>
-            </form>
-        </div>
+    <div>
+        <button mat-raised-button routerLink="/users" (click)="registerNow()" color="primary">Register</button>
     </div>
-</div>

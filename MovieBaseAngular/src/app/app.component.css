@@ -2,10 +2,9 @@ button{
     margin-right: 0.15cm;
     margin-left: 0.10cm;
 }
-h1 {
+/* h1 {
    color: white;
-    
-}
+} */
 
 body {
     margin-top:0.5cm;
@@ -16,7 +15,7 @@ body {
 
 /* .navbar {
     justify-content: space-between;
-}
+
 
 span {
     padding-right: 1rem;
