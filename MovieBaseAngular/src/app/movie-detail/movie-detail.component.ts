@@ -24,7 +24,7 @@ export class MovieDetailComponent implements OnInit {
     private location: Location,
     private moviesList: MoviesListComponent,
   ) { }
-
+  //  Gdzieś to już widziałem :?
   genres: Genre[] = [
     { value: 'Action', viewValue: 'Action' },
     { value: 'Adventure', viewValue: 'Adventure' },

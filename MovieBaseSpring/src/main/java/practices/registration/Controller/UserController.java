@@ -10,6 +10,7 @@ import practices.registration.Repository.UserRepository;
 import java.util.LinkedList;
 import java.util.Optional;
 
+// To samo co w przypadku movie
 @RestController
 @CrossOrigin(origins = "*")
 public class UserController {

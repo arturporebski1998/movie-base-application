@@ -11,15 +11,20 @@ import java.util.LinkedList;
 import java.util.Optional;
 
 
+// Użycie adnotacji @GetMapping/post etc a nad klasą dać @RequestMapping wspólny dla wszystkich
+// Controller -> Service -> ServiceImpl -> Repository !!!!!!!!
+// duża część komenatrzy jest zbędna, większość metod mówi sama za siebie
 @RestController
 @CrossOrigin(origins = "*")
 public class MovieController {
 
+//     Przez konstruktor ps. final
     @Autowired
     private MovieRepository movieRepository;
 
     //get movies
     @RequestMapping(value = "/movies", method = RequestMethod.GET)
+//    LinkedList? Doczytaj o ResponeEntity
     public ResponseEntity<LinkedList<Movie>> getAllMovies() {
         return new ResponseEntity(this.movieRepository.findAll(), HttpStatus.OK);
     }

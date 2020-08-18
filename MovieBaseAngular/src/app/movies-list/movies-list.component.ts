@@ -40,7 +40,8 @@ export class MoviesListComponent implements OnInit {
   update(movie: Movie): void {
     this.movieService.updateMovie(movie).subscribe(movie => {
       this.reloadMovies();
-    }, err => {});
+      // fajny error tylko nic nie robi :D
+    }, err => { });
   }
 
   goBack(): void {

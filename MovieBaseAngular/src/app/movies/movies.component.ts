@@ -11,10 +11,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class MoviesComponent implements OnInit {
-
+  //  po co to
   movie: Movie = new Movie(0, '', '', '', 0, '', '');
 
   constructor(
+    // nie użwane
     private route: ActivatedRoute,
     private router: Router,
     private movieService: MovieService) {

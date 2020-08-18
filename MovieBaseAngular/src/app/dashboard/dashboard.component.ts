@@ -8,7 +8,7 @@ import { MovieService } from '../services/movie-service/movie.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  // private _
   movies: Movie[];
 
   constructor(private movieService: MovieService) { }

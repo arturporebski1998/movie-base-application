@@ -15,6 +15,7 @@ export class UserRegistrationService {
   };
 
   constructor(private http: HttpClient) {
+    // enviroment
     this.usersUrl = 'http://localhost:8080/users';
   }
 

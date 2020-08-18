@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-
+// to samo co w przypadku movie
 @Entity
 @Table(name = "users")
 @AllArgsConstructor

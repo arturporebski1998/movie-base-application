@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-
+// Doczytać co to Lombok, jak działa etc
 @Entity
 @Table(name="movies")
 @AllArgsConstructor
@@ -71,6 +71,7 @@ public class Movie implements Serializable {
     private String title;
 
     @Column
+//            private
     double avgRate;
 
     @Column
@@ -82,6 +83,7 @@ public class Movie implements Serializable {
     private String director;
 
     @Column
+//    to też powinno być enumem
     private String country;
 
     @Column
