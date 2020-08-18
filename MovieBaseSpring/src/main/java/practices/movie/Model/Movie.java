@@ -71,8 +71,7 @@ public class Movie implements Serializable {
     private String title;
 
     @Column
-//            private
-    double avgRate;
+    private double avgRate;
 
     @Column
     // should be some kind of string ENUM
