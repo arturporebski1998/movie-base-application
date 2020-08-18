@@ -7,6 +7,8 @@ import { MatListModule } from '@angular/material/list'
 import { MatButtonModule, MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 const MaterialComponents = [
   MatButtonToggleModule,
@@ -16,8 +18,11 @@ const MaterialComponents = [
   MatListModule,
   MatButtonModule,
   BrowserAnimationsModule,
+  BrowserModule,
   MatDividerModule,
-  MatToolbarModule
+  MatToolbarModule,
+  FormsModule,
+  ReactiveFormsModule
 ];
 
 @NgModule({

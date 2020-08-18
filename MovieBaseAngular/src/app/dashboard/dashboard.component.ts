@@ -9,7 +9,7 @@ import { MovieService } from '../services/movie-service/movie.service';
 })
 export class DashboardComponent implements OnInit {
   // private _
-  movies: Movie[];
+  private movies: Movie[];
 
   constructor(private movieService: MovieService) { }
 

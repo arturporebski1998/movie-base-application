@@ -2,21 +2,22 @@ button{
     margin-right: 0.15cm;
     margin-left: 0.10cm;
 }
-/* h1 {
-   color: white;
-} */
+
 
 body {
     margin-top:0.5cm;
     margin-left:1cm;
     margin-right: 1cm;
-    padding:0cm
+    padding:0cm;
+    
 }
 
-/* .navbar {
+ .navbar {
     justify-content: space-between;
+    color: white;
+    background: rgb(81, 0, 173); 
+ }
 
-
-span {
+/* span {
     padding-right: 1rem;
-} */
+}  */

@@ -16,7 +16,7 @@ interface Genre {
 })
 export class MovieAddComponent implements OnInit {
 	// private _
-	movie: Movie = new Movie(0, '', '', '', 0, '', '');
+	private movie: Movie = new Movie(0, '', '', '', 0, '', '');
 
 	// To nie je enum xD
 	genres: Genre[] = [
@@ -41,8 +41,7 @@ export class MovieAddComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	// saveMovie a zaraz addMovie trzymaj się jednego
-	saveMovie(): void {
+	addMovie(): void {
 		this.movieService.addMovie(this.movie).subscribe();
 	}
 
