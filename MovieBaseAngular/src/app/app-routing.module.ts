@@ -5,8 +5,8 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieAddComponent } from './movie-add/movie-add.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { SearchDeleteComponent } from './search-delete/search-delete.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'movies', component: MoviesComponent },
   { path: 'movies/add', component: MovieAddComponent },
   { path: 'register', component: RegistrationComponent },
-  { path: 'users', component: SearchDeleteComponent },
+  { path: 'users', component: UsersListComponent },
   { path: 'movies/id', component: MovieDetailComponent },
   { path: 'test', component: MovieDetailComponent }
 ];

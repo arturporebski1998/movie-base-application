@@ -7,7 +7,6 @@ import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
 import { MovieService } from './movie.service';
-import { SearchDeleteComponent } from './search-delete/search-delete.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieAddComponent } from './movie-add/movie-add.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +14,7 @@ import { MaterialModule } from './modules/material.module';
 import { RegistrationComponent } from './registration/registration.component';
 import { UserRegistrationService } from './user-registration.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DashboardComponent,
     MoviesComponent,
     MovieDetailComponent,
-    SearchDeleteComponent,
+    UsersListComponent,
     MoviesListComponent,
     MovieAddComponent,
     RegistrationComponent,

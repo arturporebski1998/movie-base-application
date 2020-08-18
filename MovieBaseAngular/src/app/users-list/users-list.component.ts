@@ -3,11 +3,11 @@ import { UserRegistrationService } from '../user-registration.service';
 import { User } from '../user';
 
 @Component({
-  selector: 'app-search-delete',
-  templateUrl: './search-delete.component.html',
-  styleUrls: ['./search-delete.component.css']
+  selector: 'app-users-list',
+  templateUrl: './users-list.component.html',
+  styleUrls: ['./users-list.component.css']
 })
-export class SearchDeleteComponent implements OnInit {
+export class UsersListComponent implements OnInit {
   users: any;
   email: string;
 
