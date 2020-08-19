@@ -25,18 +25,16 @@ public class MovieController {
         this.movieRepository = movieRepository;
         this.movieService = movieService;
     }
-    //zrobić lepiej, nie można wsadzić voida (1) do Returna Response Entity
+
     @RequestMapping(value = "/movies", method = RequestMethod.GET)
     public ResponseEntity<Movie> getMovies() {
-        this.movieService.getMovies();// (1)
-        return new ResponseEntity(this.movieRepository.findAll(), HttpStatus.FOUND);
+        return new ResponseEntity(this.movieRepository.findAll(), HttpStatus.OK);
     }
 
-    //zrobić lepiej, nie można wsadzić voida (2) do Returna Response Entity
+
     @RequestMapping(value = "/movies/{id}", method = RequestMethod.GET)
     public ResponseEntity<Movie> getMovie(@PathVariable(value = "id") Long movieId) {
-        this.movieService.getMovie(movieId);// (2)
-        return new ResponseEntity(this.movieRepository.findById(movieId), HttpStatus.FOUND);
+        return new ResponseEntity(this.movieRepository.findById(movieId), HttpStatus.OK);
     }
 
 
