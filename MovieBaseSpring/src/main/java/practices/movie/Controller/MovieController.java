@@ -26,7 +26,7 @@ public class MovieController {
         this.movieService = movieService;
     }
 
-    @RequestMapping(value = "/movies", method = RequestMethod.GET)
+    @GetMapping(value = "/movies")
     public ResponseEntity<Movie> getMovies() {
         return new ResponseEntity(this.movieRepository.findAll(), HttpStatus.OK);
     }
