@@ -1,4 +1,4 @@
-package practices.movie.MovieProj;
+package practices.movie.movieproj;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

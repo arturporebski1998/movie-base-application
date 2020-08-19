@@ -1,8 +1,8 @@
-package practices.movie.Repository;
+package practices.movie.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import practices.movie.Model.Movie;
+import practices.movie.model.Movie;
 
 
 @Repository

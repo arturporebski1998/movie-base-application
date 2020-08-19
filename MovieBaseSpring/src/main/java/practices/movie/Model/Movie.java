@@ -1,4 +1,4 @@
-package practices.movie.Model;
+package practices.movie.model;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

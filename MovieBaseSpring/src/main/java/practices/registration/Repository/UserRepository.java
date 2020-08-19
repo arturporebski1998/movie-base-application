@@ -1,12 +1,11 @@
-package practices.registration.Repository;
+package practices.registration.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
-import practices.registration.Model.User;
+import practices.registration.model.User;
 
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    ResponseEntity<User> findByEmail(String email);
+
 }
