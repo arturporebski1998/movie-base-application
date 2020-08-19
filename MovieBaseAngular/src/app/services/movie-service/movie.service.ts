@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-
+import { Observable } from 'rxjs';
 import { Movie } from '../../movie';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({ providedIn: 'root'})
@@ -11,41 +10,38 @@ export class MovieService {
 
   private moviesUrl: string;
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
   messageService: any;
 
   constructor(private http: HttpClient) {
-    this.moviesUrl = 'http://localhost:8080/movies';
+    this.moviesUrl = environment.httpMovies;
   }
 
   
-  getMovies(): Observable<Movie[]> {
+  public getMovies(): Observable<Movie[]> {
     return this.http.get<Movie[]>(this.moviesUrl)
   }
 
 
-  addMovie(movie: Movie): Observable<Movie> {
-    return this.http.post<Movie>(this.moviesUrl, movie, this.httpOptions)
+  public addMovie(movie: Movie): Observable<Movie> {
+    return this.http.post<Movie>(this.moviesUrl, movie, environment.httpOptions)
   }
 
 
-  deleteMovie(movie: Movie): Observable<Movie> {
+  public deleteMovie(movie: Movie): Observable<Movie> {
     const url = `${this.moviesUrl}/${movie.id}`;
-    return this.http.delete<Movie>(url, this.httpOptions);
+    return this.http.delete<Movie>(url, environment.httpOptions);
   }
 
 
-  updateMovie(movie: Movie): Observable<Movie> {
+  public updateMovie(movie: Movie): Observable<Movie> {
     const url = `${this.moviesUrl}/${movie.id}`;
-    return this.http.put<Movie>(url, movie, this.httpOptions);
+    return this.http.put<Movie>(url, movie, environment.httpOptions);
   }
 
   //get by id 
-   getMovie(movie: Movie): Observable<Movie> {
+  public getMovie(movie: Movie): Observable<Movie> {
     const url = `${this.moviesUrl}/${movie.id}`;
-    return this.http.get<Movie>(url);
+    return this.http.get<Movie>(url, environment.httpOptions);
   }
 
 }

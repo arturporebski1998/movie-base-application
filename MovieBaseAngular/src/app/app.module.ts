@@ -16,7 +16,6 @@ import { UserRegistrationService } from './services/user-registration-service/us
 import { UsersListComponent } from './users-list/users-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -25,7 +24,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    MaterialModule
 
 
   ],
@@ -37,7 +36,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     UsersListComponent,
     MoviesListComponent,
     MovieAddComponent,
-    RegistrationComponent,
+    RegistrationComponent
   ],
   
   providers: [ MovieService, UserRegistrationService ],

@@ -17,13 +17,13 @@ export class UsersListComponent implements OnInit {
     this.reloadUsers();
   }
 
-  reloadUsers(): void {
+  private reloadUsers(): void {
     this.userRegistrationService.getUsers().subscribe(data => {
       this.users = data;
     });
   }
 
-  removeUser(user: User): void {
+  private deleteUser(user: User): void {
     this.userRegistrationService.deleteUser(user).subscribe(() => {
       this.reloadUsers();
     });

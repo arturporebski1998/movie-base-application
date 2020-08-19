@@ -1,9 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from '../movie';
-import { Location } from '@angular/common';
 import { MovieService } from '../services/movie-service/movie.service';
 import { MoviesListComponent } from '../movies-list/movies-list.component';
-import { ActivatedRoute, Router } from '@angular/router';
 
 interface Genre {
   value: string;
@@ -15,13 +13,14 @@ interface Genre {
   templateUrl: './movie-detail.component.html',
   styleUrls: ['./movie-detail.component.css']
 })
+
 export class MovieDetailComponent implements OnInit {
 
   @Input() movie: Movie;
+  
 
   constructor(
     private movieService: MovieService,
-    private location: Location,
     private moviesList: MoviesListComponent,
   ) { }
   //  Gdzieś to już widziałem :?
@@ -41,7 +40,7 @@ export class MovieDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.selectedMovie();
+    //this.selectedMovie();
   }
 
   selectedMovie(): void {
@@ -49,7 +48,8 @@ export class MovieDetailComponent implements OnInit {
   }
 
   getMovie(movie: Movie): void {
-    this.movieService.getMovie(movie);
+    this.movieService.getMovie(movie)
+    .subscribe(movie => this.movie = movie);
   }
 
   updateMovie(movie: Movie): void {
@@ -60,9 +60,9 @@ export class MovieDetailComponent implements OnInit {
     this.moviesList.deleteMovie(movie);
   }
 
-  goBack(): void {
-    this.location.back();
-  }
+  // goBack(): void {
+  //   this.location.back();
+  // }
 
 
 

@@ -12,8 +12,6 @@ import {ErrorStateMatcher} from '@angular/material/core';
 })
 export class RegistrationComponent implements OnInit {
 
-
-
   user: User = new User(0,'','','','','');
 
   constructor(private userRegistrationService: UserRegistrationService) { }

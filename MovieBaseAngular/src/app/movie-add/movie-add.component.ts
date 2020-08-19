@@ -8,14 +8,13 @@ interface Genre {
 	viewValue: string;
 }
 
-
 @Component({
 	selector: 'app-movie-add',
 	templateUrl: './movie-add.component.html',
 	styleUrls: ['./movie-add.component.css']
 })
 export class MovieAddComponent implements OnInit {
-	// private _
+
 	private movie: Movie = new Movie(0, '', '', '', 0, '', '');
 
 	// To nie je enum xD
@@ -41,7 +40,7 @@ export class MovieAddComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	addMovie(): void {
+	private addMovie(): void {
 		this.movieService.addMovie(this.movie).subscribe();
 	}
 
