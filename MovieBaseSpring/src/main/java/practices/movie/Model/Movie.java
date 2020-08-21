@@ -6,11 +6,12 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-// Doczytać co to Lombok, jak działa etc
+// Doczytać co to eeeeee, jak działa etc
 @Entity
 @Table(name="movies")
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Movie implements Serializable {
 
     public long getId() {

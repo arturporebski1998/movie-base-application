@@ -11,7 +11,8 @@ import practices.movie.service.MovieService;
 import java.util.Optional;
 
 
-// Użycie adnotacji @GetMapping/post etc a nad klasą dać @RequestMapping wspólny dla wszystkich
+
+@RequestMapping
 @RestController
 @CrossOrigin(origins = "*")
 public class MovieController {
@@ -32,20 +33,20 @@ public class MovieController {
     }
 
 
-    @RequestMapping(value = "/movies/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/movies/{id}")
     public ResponseEntity<Movie> getMovie(@PathVariable(value = "id") Long movieId) {
         return new ResponseEntity(this.movieRepository.findById(movieId), HttpStatus.OK);
     }
 
 
-    @RequestMapping(value = "/movies", method = RequestMethod.POST)
+    @PostMapping(value = "/movies")
     public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
         this.movieService.addMovie(movie);
         return new ResponseEntity(movie, HttpStatus.CREATED);
     }
 
 
-    @RequestMapping(value = "/movies/{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "/movies/{id}")
     public ResponseEntity<Movie> updateMovie(@PathVariable(value = "id") Long movieId, @RequestBody Movie movie) {
         Optional<Movie> optMovie = movieRepository.findById(movieId);
         if (optMovie.isPresent()) {
@@ -57,7 +58,7 @@ public class MovieController {
     }
 
 
-    @RequestMapping(value = "/movies/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/movies/{id}")
     public ResponseEntity<Movie> deleteMovie(@PathVariable("id") Long movieId) {
         Optional<Movie> optMovie = movieRepository.findById(movieId);
         if (optMovie.isPresent()) {

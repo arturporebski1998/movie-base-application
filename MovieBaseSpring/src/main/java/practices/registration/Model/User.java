@@ -7,13 +7,23 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-// to samo co w przypadku movie
 @Entity
 @Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private  long id;
+    private String firstName;
+    private String lastName;
+
+    @Column(nullable = false, unique = true)
+    private String username;
+    private String password;
+
+    private String email;
 
     public long getId() {
         return id;
@@ -64,16 +74,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String firstName;
-    private String lastName;
 
-    private String username;
-    private String password;
-
-    private String email;
 
 }
 
