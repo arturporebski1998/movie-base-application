@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import javax.sql.DataSource;
 import java.util.concurrent.TimeUnit;
 
 import static practices.springsecurity.security.ApplicationUserRole.*;
@@ -22,6 +23,9 @@ import static practices.springsecurity.security.ApplicationUserRole.*;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    DataSource dataSource;
 
     private final PasswordEncoder passwordEncoder;
     private final ApplicationUserService applicationUserService;
@@ -38,15 +42,15 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
-                .antMatchers("/api/**").hasRole(STUDENT.name())
+                .antMatchers("/", "index", "/css/*", "/js/*", "/ts/*").permitAll()
+                .antMatchers("/api/**").hasRole(USER.name())
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                     .loginPage("/login")
                     .permitAll()
-                    .defaultSuccessUrl("/courses", true)
+                    .defaultSuccessUrl("/moviess", true)
                     .passwordParameter("password")
                     .usernameParameter("username")
                 .and()
@@ -76,5 +80,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         provider.setUserDetailsService(applicationUserService);
         return provider;
     }
+
+
 
 }

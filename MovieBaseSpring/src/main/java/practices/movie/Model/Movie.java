@@ -79,6 +79,7 @@ public class Movie implements Serializable {
     /// but @Column is not applicable to type enum
     private String genre;
 
+
     @Column
     private String director;
 

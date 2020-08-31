@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/users")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ADMINTRAINEE')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public ResponseEntity<User> getUsers() {
         this.userService.getUsers();
         return new ResponseEntity(this.userRepository.findAll(), HttpStatus.OK);
@@ -34,36 +34,10 @@ public class UserController {
 
 
     @GetMapping(value = "/users/{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ADMINTRAINEE')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public ResponseEntity<User> getUser(@PathVariable(value = "id") Long userId) {
         this.userService.getUser(userId);
         return new ResponseEntity(this.userRepository.findById(userId), HttpStatus.OK);
-    }
-
-    @PostMapping(value = "/users")
-    @PreAuthorize("hasAuthority('student:write')")
-    public ResponseEntity<User> addUser(@RequestBody User user) {
-        this.userService.addUser(user);
-        return new ResponseEntity(user, HttpStatus.OK);
-    }
-
-    @DeleteMapping(value = "/users/{id}")
-    @PreAuthorize("hasAuthority('student:write')")
-    public ResponseEntity<User> deleteUser(@PathVariable("id") Long userId) {
-        userService.deleteUser(userId);
-        return new ResponseEntity(HttpStatus.OK);
-    }
-
-    @PutMapping(value = "/users/{id}")
-    @PreAuthorize("hasAuthority('student:write')")
-    public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId, @RequestBody User user) {
-        Optional<User> optUser = userRepository.findById(userId);
-        if (optUser.isPresent()) {
-            userService.updateUser(user,userId);
-            return new ResponseEntity<>(this.userRepository.save(user), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-        }
     }
 
 }

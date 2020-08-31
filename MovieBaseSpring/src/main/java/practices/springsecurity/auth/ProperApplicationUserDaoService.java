@@ -10,13 +10,13 @@ import java.util.Optional;
 
 import static practices.springsecurity.security.ApplicationUserRole.*;
 
-@Repository("fake")
-public class FakeApplicationUserDaoService implements ApplicationUserDao {
+@Repository("proper")
+public class ProperApplicationUserDaoService implements ApplicationUserDao {
 
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public FakeApplicationUserDaoService(PasswordEncoder passwordEncoder) {
+    public ProperApplicationUserDaoService(PasswordEncoder passwordEncoder) {
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -29,27 +29,7 @@ public class FakeApplicationUserDaoService implements ApplicationUserDao {
     }
 
     private List<ApplicationUser> getApplicationUsers() {
-        List<ApplicationUser> applicationUsers = Lists.newArrayList(
-                new ApplicationUser(
-                        "annasmith",
-                        passwordEncoder.encode("password"),
-                        USER.getGrantedAuthorities(),
-                        true,
-                        true,
-                        true,
-                        true
-                ),
-                new ApplicationUser(
-                        "linda",
-                        passwordEncoder.encode("password"),
-                        ADMIN.getGrantedAuthorities(),
-                        true,
-                        true,
-                        true,
-                        true
-                )
-
-        );
+        List<ApplicationUser> applicationUsers = Lists.newArrayList();
 
         return applicationUsers;
     }
