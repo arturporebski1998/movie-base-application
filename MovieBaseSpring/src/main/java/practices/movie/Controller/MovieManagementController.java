@@ -11,7 +11,7 @@ import practices.movie.service.MovieService;
 
 import java.util.Optional;
 
-@RequestMapping("management/movies")
+@RequestMapping("movies")
 @RestController
 @CrossOrigin(origins = "*")
 public class MovieManagementController {
