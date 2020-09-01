@@ -11,7 +11,7 @@ import practices.movie.service.MovieService;
 
 import java.util.Optional;
 
-@RequestMapping
+@RequestMapping("management/movies")
 @RestController
 @CrossOrigin(origins = "*")
 public class MovieManagementController {
@@ -21,19 +21,23 @@ public class MovieManagementController {
     @Autowired
     MovieService movieService;
 
-    @PostMapping(value = "/management/movies")
+    @PostMapping
+    @PreAuthorize("hasAuthority('movie:write')")
     public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
         this.movieService.addMovie(movie);
+        System.out.println("addMovie done");
         return new ResponseEntity(movie, HttpStatus.CREATED);
     }
 
 
-    @PutMapping(value = "/management/movies/{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<Movie> updateMovie(@PathVariable(value = "id") Long movieId, @RequestBody Movie movie) {
+    @PutMapping(path = "{id}")
+    @PreAuthorize("hasAuthority('movie:write')")
+    public ResponseEntity<Movie> updateMovie(@PathVariable(value = "id") Long movieId,
+                                             @RequestBody Movie movie) {
         Optional<Movie> optMovie = movieRepository.findById(movieId);
         if (optMovie.isPresent()) {
             movieService.updateMovie(movie,movieId);
+            System.out.println("updateMovie done");
             return new ResponseEntity<>(movie, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
@@ -41,12 +45,13 @@ public class MovieManagementController {
     }
 
 
-    @DeleteMapping(value = "/management/movies/{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @DeleteMapping(path = "{id}")
+    @PreAuthorize("hasAuthority('movie:write')")
     public ResponseEntity<Movie> deleteMovie(@PathVariable("id") Long movieId) {
         Optional<Movie> optMovie = movieRepository.findById(movieId);
         if (optMovie.isPresent()) {
             movieService.deleteMovie(movieId);
+            System.out.println("deleteMovie done");
             return new ResponseEntity<>(HttpStatus.OK);
         }
         else {

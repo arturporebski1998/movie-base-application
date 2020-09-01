@@ -13,7 +13,7 @@ public class ApplicationUserService implements UserDetailsService {
     private final practices.springsecurity.auth.ApplicationUserDao applicationUserDao;
 
     @Autowired
-    public ApplicationUserService(@Qualifier("fake") ApplicationUserDao applicationUserDao) {
+    public ApplicationUserService(@Qualifier("proper") ApplicationUserDao applicationUserDao) {
         this.applicationUserDao = applicationUserDao;
     }
 

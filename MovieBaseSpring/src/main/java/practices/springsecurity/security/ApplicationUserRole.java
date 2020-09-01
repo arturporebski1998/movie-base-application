@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 import static practices.springsecurity.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
-    USER(Sets.newHashSet()),
-    ADMIN(Sets.newHashSet(MOVIES_READ, MOVIES_WRITE, USER_READ, USER_WRITE));
+    USER(Sets.newHashSet(MOVIE_READ, USER_READ)),
+    ADMIN(Sets.newHashSet(MOVIE_READ, MOVIE_WRITE, USER_READ, USER_WRITE));
 
     private final Set<ApplicationUserPermission> permissions;
 

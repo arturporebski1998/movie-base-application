@@ -11,7 +11,7 @@ import practices.registration.service.UserService;
 
 import java.util.Optional;
 
-@RequestMapping
+@RequestMapping("users")
 @RestController
 @CrossOrigin(origins = "*")
 public class UserController {
@@ -20,23 +20,26 @@ public class UserController {
     private UserRepository userRepository;
     private UserService userService;
 
-    public UserController(UserRepository userRepository, UserService userService) {
+    public UserController(UserRepository userRepository,
+                          UserService userService) {
         this.userRepository = userRepository;
         this.userService = userService;
     }
 
-    @GetMapping(value = "/users")
+    @GetMapping
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public ResponseEntity<User> getUsers() {
         this.userService.getUsers();
+        System.out.println("getUsers done");
         return new ResponseEntity(this.userRepository.findAll(), HttpStatus.OK);
     }
 
 
-    @GetMapping(value = "/users/{id}")
+    @GetMapping(path = "{id}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public ResponseEntity<User> getUser(@PathVariable(value = "id") Long userId) {
         this.userService.getUser(userId);
+        System.out.println("getUser done");
         return new ResponseEntity(this.userRepository.findById(userId), HttpStatus.OK);
     }
 

@@ -47,6 +47,15 @@ public class FakeApplicationUserDaoService implements ApplicationUserDao {
                         true,
                         true,
                         true
+                ),
+                new ApplicationUser(
+                        "arczi",
+                        passwordEncoder.encode("password"),
+                        USER.getGrantedAuthorities(),
+                        true,
+                        true,
+                        true,
+                        true
                 )
 
         );

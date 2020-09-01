@@ -11,7 +11,7 @@ import practices.registration.service.UserService;
 
 import java.util.Optional;
 
-@RequestMapping
+@RequestMapping("users")
 @RestController
 @CrossOrigin(origins = "*")
 public class UserManagementController {
@@ -21,26 +21,30 @@ public class UserManagementController {
     private UserService userService;
 
 
-    @PostMapping(value = "/management/users")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PostMapping
+    @PreAuthorize("hasAuthority('user:write')")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         this.userService.addUser(user);
+        System.out.println("addUser done");
         return new ResponseEntity(user, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/management/users/{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @DeleteMapping(path = "{id}")
+    @PreAuthorize("hasAuthority('user:write')")
     public ResponseEntity<User> deleteUser(@PathVariable("id") Long userId) {
         userService.deleteUser(userId);
+        System.out.println("deleteUser done");
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PutMapping(value = "/management/users/{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
-    public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId, @RequestBody User user) {
+    @PutMapping(path = "{id}")
+    @PreAuthorize("hasAuthority('user:write')")
+    public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
+                                           @RequestBody User user) {
         Optional<User> optUser = userRepository.findById(userId);
         if (optUser.isPresent()) {
             userService.updateUser(user,userId);
+            System.out.println("updateUser done");
             return new ResponseEntity<>(this.userRepository.save(user), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);

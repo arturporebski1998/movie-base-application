@@ -19,28 +19,28 @@ public class UserrManagementController {
     @GetMapping
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public List<Userr> getAllUsers() {
-        System.out.println("getAllUsers");
+        System.out.println("getAllUsers done");
         return USERS;
     }
 
     @PostMapping
     @PreAuthorize("hasAuthority('user:write')")
     public void registerNewUser(@RequestBody Userr user) {
-        System.out.println("registerNewUser");
+        System.out.println("registerNewUser done");
         System.out.println(user);
     }
 
     @DeleteMapping(path = "{userId}")
     @PreAuthorize("hasAuthority('user:write')")
     public void deleteUser(@PathVariable("userId") Integer userId) {
-        System.out.println("deleteUser");
+        System.out.println("deleteUser done");
         System.out.println(userId);
     }
 
     @PutMapping(path = "{userId}")
     @PreAuthorize("hasAuthority('user:write')")
     public void updateUser(@PathVariable("userId") Integer userId, @RequestBody Userr user) {
-        System.out.println("updateUser");
+        System.out.println("updateUser done");
         System.out.println(String.format("%s %s", userId, user));
     }
 }

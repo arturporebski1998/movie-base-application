@@ -3,8 +3,8 @@ package practices.springsecurity.security;
 public enum ApplicationUserPermission {
     USER_READ("user:read"),
     USER_WRITE("user:write"),
-    MOVIES_READ("movie:read"),
-    MOVIES_WRITE("movie:write");
+    MOVIE_READ("movie:read"),
+    MOVIE_WRITE("movie:write");
 
     private final String permission;
 

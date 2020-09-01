@@ -9,11 +9,9 @@ import practices.movie.model.Movie;
 import practices.movie.repository.MovieRepository;
 import practices.movie.service.MovieService;
 
-import java.util.Optional;
 
 
-
-@RequestMapping
+@RequestMapping("movies")
 @RestController
 @CrossOrigin(origins = "*")
 public class MovieController {
@@ -23,21 +21,24 @@ public class MovieController {
     @Autowired
     MovieService movieService;
 
-    public MovieController(MovieRepository movieRepository, MovieService movieService) {
+    public MovieController(MovieRepository movieRepository,
+                           MovieService movieService) {
         this.movieRepository = movieRepository;
         this.movieService = movieService;
     }
 
-    @GetMapping(value = "/movies")
+    @GetMapping
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public ResponseEntity<Movie> getMovies() {
+        System.out.println("getMovies done");
         return new ResponseEntity(this.movieRepository.findAll(), HttpStatus.OK);
     }
 
 
-    @GetMapping(value = "/movies/{id}")
+    @GetMapping(path = "{id}")
     @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
     public ResponseEntity<Movie> getMovie(@PathVariable(value = "id") Long movieId) {
+        System.out.println("getMovie done");
         return new ResponseEntity(this.movieRepository.findById(movieId), HttpStatus.OK);
     }
 

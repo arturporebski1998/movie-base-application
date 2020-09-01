@@ -1,4 +1,3 @@
-// Everything with identity and authorization should be in aggregated package, add practices.identity.model, practices.identity.repository etc
 package practices.registration.model;
 
 import lombok.AllArgsConstructor;
@@ -28,11 +27,22 @@ public class User implements Serializable {
 
     private String email;
 
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    private String roles;
+    //private boolean active;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
+
 
     public long getId() { return id; }
 
