@@ -6,6 +6,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import practices.registration.model.User;
+import practices.registration.repository.UserRepository;
+
+import java.util.Optional;
 
 @Service
 public class ApplicationUserService implements UserDetailsService {
@@ -17,12 +21,16 @@ public class ApplicationUserService implements UserDetailsService {
         this.applicationUserDao = applicationUserDao;
     }
 
+    @Autowired
+    UserRepository userRepository;
+
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return applicationUserDao
-                .selectApplicationUserByUsername(username)
-                .orElseThrow(() ->
-                        new UsernameNotFoundException(String.format("Username %s not found", username))
-                );
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+
+        Optional<User> user = userRepository.findByUsername(userName);
+
+        user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + userName));
+
+        return user.map(ApplicationUser::new).get();
     }
 }
