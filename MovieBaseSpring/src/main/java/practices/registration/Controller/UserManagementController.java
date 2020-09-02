@@ -18,27 +18,34 @@ public class UserManagementController {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
     private UserService userService;
 
-
     @PostMapping
-    @PreAuthorize("hasAuthority('user:write')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         this.userService.addUser(user);
         System.out.println("addUser done");
-        return new ResponseEntity(user, HttpStatus.OK);
+        return new ResponseEntity(user, HttpStatus.CREATED);
     }
 
     @DeleteMapping(path = "{id}")
-    @PreAuthorize("hasAuthority('user:write')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<User> deleteUser(@PathVariable("id") Long userId) {
-        userService.deleteUser(userId);
-        System.out.println("deleteUser done");
-        return new ResponseEntity(HttpStatus.OK);
+        Optional<User> optUser = userRepository.findById(userId);
+        if (optUser.isPresent()) {
+            userService.deleteUser(userId);
+            System.out.println("deleteUser done");
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+        }
     }
 
+
     @PutMapping(path = "{id}")
-    @PreAuthorize("hasAuthority('user:write')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
                                            @RequestBody User user) {
         Optional<User> optUser = userRepository.findById(userId);

@@ -28,7 +28,7 @@ public class MovieController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity<Movie> getMovies() {
         System.out.println("getMovies done");
         return new ResponseEntity(this.movieRepository.findAll(), HttpStatus.OK);
@@ -36,7 +36,7 @@ public class MovieController {
 
 
     @GetMapping(path = "{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity<Movie> getMovie(@PathVariable(value = "id") Long movieId) {
         System.out.println("getMovie done");
         return new ResponseEntity(this.movieRepository.findById(movieId), HttpStatus.OK);

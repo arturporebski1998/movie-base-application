@@ -9,11 +9,9 @@ import practices.registration.model.User;
 import practices.registration.repository.UserRepository;
 import practices.registration.service.UserService;
 
-import java.util.Optional;
 
 @RequestMapping("users")
 @RestController
-@CrossOrigin(origins = "*")
 public class UserController {
 
     @Autowired
@@ -26,8 +24,10 @@ public class UserController {
         this.userService = userService;
     }
 
+
+
     @GetMapping
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity<User> getUsers() {
         this.userService.getUsers();
         System.out.println("getUsers done");
@@ -36,7 +36,7 @@ public class UserController {
 
 
     @GetMapping(path = "{id}")
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity<User> getUser(@PathVariable(value = "id") Long userId) {
         this.userService.getUser(userId);
         System.out.println("getUser done");

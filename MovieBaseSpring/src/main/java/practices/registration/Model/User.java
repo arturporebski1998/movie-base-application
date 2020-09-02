@@ -20,29 +20,24 @@ public class User implements Serializable {
 
     private String firstName;
     private String lastName;
+    private String email;
 
     @Column(nullable = false, unique = true)
     private String username;
     private String password;
-
-    private String email;
-
-    public String getRoles() {
-        return roles;
-    }
-
-    public void setRoles(String roles) {
-        this.roles = roles;
-    }
-
     private String roles;
-    //private boolean active;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(	name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
 
+    public String getRoles() { return roles; }
+
+    public void setRoles(String roles) { this.roles = roles; }
 
     public long getId() { return id; }
 

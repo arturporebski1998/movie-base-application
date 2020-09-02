@@ -22,7 +22,7 @@ public class MovieManagementController {
     MovieService movieService;
 
     @PostMapping
-    @PreAuthorize("hasAuthority('movie:write')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Movie> addMovie(@RequestBody Movie movie) {
         this.movieService.addMovie(movie);
         System.out.println("addMovie done");
@@ -31,7 +31,7 @@ public class MovieManagementController {
 
 
     @PutMapping(path = "{id}")
-    @PreAuthorize("hasAuthority('movie:write')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Movie> updateMovie(@PathVariable(value = "id") Long movieId,
                                              @RequestBody Movie movie) {
         Optional<Movie> optMovie = movieRepository.findById(movieId);
@@ -46,7 +46,7 @@ public class MovieManagementController {
 
 
     @DeleteMapping(path = "{id}")
-    @PreAuthorize("hasAuthority('movie:write')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Movie> deleteMovie(@PathVariable("id") Long movieId) {
         Optional<Movie> optMovie = movieRepository.findById(movieId);
         if (optMovie.isPresent()) {
