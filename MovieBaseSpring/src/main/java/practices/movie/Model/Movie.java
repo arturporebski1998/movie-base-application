@@ -6,13 +6,25 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-// Doczytać co to eeeeee, jak działa etc
+
 @Entity
 @Table(name="movies")
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Movie implements Serializable {
+
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private long id;
+    private double avgRate;
+    private String director;
+    private String description;
+    @Enumerated(EnumType.STRING)
+    private ECountry country;
+    @Enumerated(EnumType.STRING)
+    private EGenre genre;
+    @Column(nullable = false, unique = true)
+    private String title;
 
     public long getId() {
         return id;
@@ -28,13 +40,9 @@ public class Movie implements Serializable {
         this.avgRate = avgRate;
     }
 
-    public String getGenre() {
-        return genre;
-    }
+    public EGenre getGenre() { return genre; }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
+    public void setGenre(EGenre genre) { this.genre = genre; }
 
     public String getDirector() {
         return director;
@@ -42,14 +50,6 @@ public class Movie implements Serializable {
 
     public void setDirector(String director) {
         this.director = director;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     public String getDescription() {
@@ -64,32 +64,8 @@ public class Movie implements Serializable {
 
     public void setTitle(String title) { this.title = title; }
 
-    @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
-    private long id;
+    public ECountry getCountry() { return country; }
 
-    @Column
-    private String title;
-
-    @Column
-    private double avgRate;
-
-    @Column
-    // should be some kind of string ENUM
-    /// but @Column is not applicable to type enum
-    private String genre;
-
-
-    @Column
-    private String director;
-
-    @Column
-//    to też powinno być enumem
-    private String country;
-
-    @Column
-    private String description;
-
-
+    public void setCountry(ECountry country) { this.country = country; }
 
 }

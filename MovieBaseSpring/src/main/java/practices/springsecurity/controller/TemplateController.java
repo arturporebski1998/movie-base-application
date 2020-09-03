@@ -12,8 +12,5 @@ public class TemplateController {
 //    public String getLogin() {
 //        return "login";
 //    }
-//    @GetMapping("moviess")
-//    public String getMoviess() {
-//        return "moviess";
-//    }
+
 }
