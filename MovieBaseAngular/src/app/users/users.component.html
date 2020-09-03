@@ -1,36 +1,41 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<br><br><br>
-<form class="example-form">
-<fieldset>
-    <h1 style="text-align: center">Registration panel</h1><br>
-    <mat-form-field style="width:33vw">
-        <input matInput [(ngModel)]="user.firstName" name="firstName" id="firstName">
-        <mat-placeholder class="placeholder">First name</mat-placeholder>
-    </mat-form-field><br>
+<div class="col-md-12">
+    <div class="card card-container">
+        <h1 style="text-align: center; color: black;">Register new account</h1><br>
+        <img id="profile-img" src="https://simpleicon.com/wp-content/uploads/add-user.png" class="profile-img-card" />
+        <mat-form-field style="width:25vw">
+            <input matInput [(ngModel)]="user.firstName" name="firstName" id="firstName">
+            <mat-placeholder class="placeholder">First name</mat-placeholder>
+        </mat-form-field><br>
 
-    <mat-form-field style="width:33vw">
-        <input matInput [(ngModel)]="user.lastName" name="lastName" id="lastName">
-        <mat-placeholder class="placeholder">Last name</mat-placeholder>
-    </mat-form-field><br>
+        <mat-form-field style="width:25vw">
+            <input matInput [(ngModel)]="user.lastName" name="lastName" id="lastName">
+            <mat-placeholder class="placeholder">Last name</mat-placeholder>
+        </mat-form-field><br>
 
-    <mat-form-field style="width:33vw">
-        <input matInput [(ngModel)]="user.email" name="email" id="email">
-        <mat-placeholder class="placeholder">E-mail</mat-placeholder>
-    </mat-form-field><br>
+        <mat-form-field style="width:25vw">
+            <input matInput [(ngModel)]="user.email" name="email" id="email">
+            <mat-placeholder class="placeholder">E-mail</mat-placeholder>
+        </mat-form-field><br>
 
-    <mat-form-field style="width:33vw">
-        <input matInput [(ngModel)]="user.username" name="username" id="username">
-        <mat-placeholder class="placeholder">Username</mat-placeholder>
-    </mat-form-field><br>
+        <mat-form-field style="width:25vw">
+            <input matInput [(ngModel)]="user.username" name="username" id="username">
+            <mat-placeholder class="placeholder">Username</mat-placeholder>
+        </mat-form-field><br>
 
-    <mat-form-field style="width:33vw">
-        <input matInput [(ngModel)]="user.password" name="password" id="password">
-        <mat-placeholder class="placeholder">Password</mat-placeholder>
-    </mat-form-field><br>
+        <mat-form-field style="width:25vw">
+            <input matInput [(ngModel)]="user.password" name="password" id="password">
+            <mat-placeholder class="placeholder">Password</mat-placeholder>
+        </mat-form-field><br>
 
-    <div>
-        <button mat-raised-button routerLink="/users" (click)="registerNow()" color="primary">Register</button>
+        <div class="form-group">
+            <button mat-raised-button class="btn btn-primary btn-block" routerLink="/users" (click)="registerNow()"
+                style="color: white; background-color: #1B5E20">
+                Register
+            </button>
+        </div>
     </div>
+</div>

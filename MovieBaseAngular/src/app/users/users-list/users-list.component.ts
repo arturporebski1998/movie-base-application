@@ -29,11 +29,5 @@ export class UsersListComponent implements OnInit {
     });
   }
 
-  // --Not used now--
-  // findUserByEmail(): void {
-  //   this.userRegistrationService.getUserByEmail(this.email).subscribe(()=>{
-  //     this.reloadUsers();
-  //   });
-  // }
 
 }

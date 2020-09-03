@@ -1,6 +1,8 @@
+
 button{
     margin-right: 0.15cm;
     margin-left: 0.10cm;
+    /* color: #37474F */
 }
 
 
@@ -15,9 +17,7 @@ body {
  .navbar {
     justify-content: space-between;
     color: white;
-    background: rgb(81, 0, 173); 
+    background: #263238
  }
 
-/* span {
-    padding-right: 1rem;
-}  */
+

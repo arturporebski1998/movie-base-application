@@ -2,11 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MovieService } from 'src/app/services/movie-service/movie.service';
 import { Movie } from 'src/app/movies/movie';
 import { MoviesListComponent } from '../movies-list/movies-list.component';
-
-interface Genre {
-  value: string;
-  viewValue: string;
-}
+import { Genres, Countries } from 'src/environments/environment';
 
 @Component({
   selector: 'app-movie-detail',
@@ -23,20 +19,9 @@ export class MovieDetailComponent implements OnInit {
     private movieService: MovieService,
     private moviesList: MoviesListComponent,
   ) { }
-  //  Gdzieś to już widziałem :?
-  genres: Genre[] = [
-    { value: 'Action', viewValue: 'Action' },
-    { value: 'Adventure', viewValue: 'Adventure' },
-    { value: 'Comedy', viewValue: 'Comedy' },
-    { value: 'Fantasy', viewValue: 'Fantasy' },
-    { value: 'Horror', viewValue: 'Horror' },
-    { value: 'Mystery', viewValue: 'Mystery' },
-    { value: 'Romance', viewValue: 'Romance' },
-    { value: 'Thriller', viewValue: 'Thriller' },
-    { value: 'Western', viewValue: 'Western' },
-    { value: 'Scifi', viewValue: 'Sci-Fi' },
-    { value: 'History', viewValue: 'History' }
-  ];
+
+  genres = Genres;
+	country = Countries;
 
 
   ngOnInit(): void {

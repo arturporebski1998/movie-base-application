@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 .custab{
   border: 1px solid #ccc;
-  padding: 5px;
-  margin: 10% 0;
+  padding: 8px;
+  margin: 5% 0;
   box-shadow: 3px 3px 2px #ccc;
   transition: 0.5s;
   }
@@ -10,4 +11,10 @@
   transition: 0.5s;
   }
 
+  .col-md-12 {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    }
  
+  

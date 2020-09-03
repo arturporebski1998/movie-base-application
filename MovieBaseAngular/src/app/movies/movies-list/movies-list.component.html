@@ -2,35 +2,39 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<div class="container">
-    <div class="row col-md-6 col-md-offset-2 custyle">
+<div class="col-md-12">
     <table class="table table-striped custab">
-    <thead>
-        <tr>
-            <th>Movie Title</th>
-            <th>Director</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let movie of movies" [class.selected]="movie === selectedMovie" >
-            <td><b>{{movie.title}}</b></td>
-            <td>{{movie.director}}</td>
-            <td class="text-center"><button class="btn btn-danger" (click)="deleteMovie(movie)"><span class="glyphicon glyphicon-remove"></span></button></td>
-            <td class="text-center"><button class="btn btn-success" (click)="onSelect(movie)"> Details</button></td>
-          </tr>
-    </tbody>
+        <thead>
+            <tr>
+                <th>Movie Title</th>
+                <th>Director</th>
+                <th>Delete</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Remove when auth will work -->
+            <tr>
+                <td>test</td>
+                <td>test</td>
+                <td><button class="btn btn-danger" (click)="deleteUser(user)">
+                        X</button></td>
+                <td><button class="btn btn-success" (click)="onSelect(movie)"> ...</button></td>
+            </tr>
+            <!-- Remove when auth will work -->
+            <tr *ngFor="let movie of movies" [class.selected]="movie === selectedMovie">
+                <td><b>{{movie.title}}</b></td>
+                <td>{{movie.director}}</td>
+                <td class="text-center"><button class="btn btn-danger" (click)="deleteMovie(movie)"><span
+                            class="glyphicon glyphicon-remove"></span></button></td>
+                <td class="text-center"><button class="btn btn-success" (click)="onSelect(movie)"> Details</button>
+                </td>
+            </tr>
+        </tbody>
     </table>
-    </div>
+    <button mat-raised-button routerLink="/movies/add" style="color: white; background-color: #1B5E20">Add New
+        Movie</button>
 </div>
 
-<button mat-raised-button routerLink="/movies/add" color="primary" >Add New Movie</button>
 
 <app-movie-detail [movie]="selectedMovie"></app-movie-detail>
-
-    
-    
- 
-
-  

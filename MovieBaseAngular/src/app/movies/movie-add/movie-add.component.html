@@ -1,47 +1,53 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
+<div class="col-md-12">
+  <div class="card card-container">
+    <h1 style="text-align: center; color: black;">Add new movie</h1><br>
+    <!-- <img id="profile-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT5jwrUB1WbdwiB_qQGb7PsDe9llCFxTTqrWg&usqp=CAU" /> -->
+    <img id="profile-img" src="https://www.fostercity.org/sites/default/files/styles/gallery500/public/imageattachments/parksrec/page/10791/thursday_movie.png?itok=XakMswGX" class="profile-img-card" />
+    <mat-form-field style="width:48.4vw">
+      <input matInput [(ngModel)]="movie.title" name="title" id="title" required>
+      <mat-placeholder class="placeholder">Enter movie title</mat-placeholder>
+    </mat-form-field>
 
-<form class="example-form"><br>
-  <fieldset>
-    <h1 style="text-align: center">Add movie</h1>
-  <mat-form-field style="width:48vw">
-    <input matInput [(ngModel)]="movie.title" name="title" id="title" required>
-    <mat-placeholder class="placeholder" >Enter movie title</mat-placeholder>
-  </mat-form-field>
+    <!-- do poprawki - enum -->
+    <mat-form-field style="width:48.4vw">
+      <mat-placeholder class="placeholder">Choose movie genre</mat-placeholder>
+      <mat-select [(ngModel)]="movie.genre" name="genre" style="width:48.4vw">
+        <mat-option *ngFor="let genre of genres" [value]="genre.value">
+          <!-- {{genre.viewValue}} -->
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field style="width:48vw">
-    <mat-placeholder class="placeholder" >Choose movie genre</mat-placeholder>
-    <mat-select [(ngModel)]="movie.genre" name="genre" style="width:40vw">
-      <mat-option *ngFor="let genre of genres" [value]="genre.value">
-        {{genre.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field style="width:48.4vw">
+      <input matInput [(ngModel)]="movie.genre" name="genre" id="genre" required>
+      <mat-placeholder class="placeholder">Enter movie genre</mat-placeholder>
+    </mat-form-field>
 
-  <mat-form-field style="width:48vw">
-    <input matInput [(ngModel)]="movie.genre" name="genre" id="genre" required>
-    <mat-placeholder class="placeholder">Enter movie genre</mat-placeholder>
-  </mat-form-field>
+    <mat-form-field style="width:48.4vw">
+      <input matInput [(ngModel)]="movie.director" name="director" id="director" required>
+      <mat-placeholder class="placeholder">Enter movie director</mat-placeholder>
+    </mat-form-field>
 
-  <mat-form-field style="width:48vw">
-    <input matInput [(ngModel)]="movie.director" name="director" id="director"required>
-    <mat-placeholder class="placeholder">Enter movie director</mat-placeholder>
-  </mat-form-field>
+    <mat-form-field style="width:48.4vw">
+      <input matInput [(ngModel)]="movie.avgRate" name="rate" id="rate" required>
+      <mat-placeholder class="placeholder">Enter movie average rate</mat-placeholder>
+    </mat-form-field>
 
-  <mat-form-field style="width:48vw">
-    <input matInput [(ngModel)]="movie.avgRate" name="rate" id="rate"required>
-    <mat-placeholder class="placeholder">Enter movie average rate</mat-placeholder>
-  </mat-form-field>
+    <mat-form-field style="width:48.4vw">
+      <input matInput [(ngModel)]="movie.country" name="country" id="country" required>
+      <mat-placeholder class="placeholder">Enter movie origin country</mat-placeholder>
+    </mat-form-field>
 
-  <mat-form-field style="width:48vw">
-    <input matInput [(ngModel)]="movie.country" name="country" id="country"required>
-    <mat-placeholder class="placeholder">Enter movie origin country</mat-placeholder>
-  </mat-form-field>
-
-  <mat-form-field style="width:48vw">
-    <mat-placeholder class="placeholder">Enter movie description</mat-placeholder>
-    <textarea matInput [(ngModel)]="movie.description" name="description" id="description"></textarea>
-  </mat-form-field>
-<br>
-  <button mat-raised-button color="primary" routerLink="/movies" (click)="addMovie()">Submit</button>
-
-</fieldset>
+    <mat-form-field style="width:48.4vw">
+      <mat-placeholder class="placeholder">Enter movie description</mat-placeholder>
+      <textarea matInput [(ngModel)]="movie.description" name="description" id="description"></textarea>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button class="btn btn-primary btn-block" routerLink="/movies" (click)="addMovie()"
+      style="color: white; background-color: #1B5E20">Submit</button>
+  </div>
+</div>

@@ -7,12 +7,12 @@
       <mat-placeholder class="placeholder">You can update movie title</mat-placeholder>
     </mat-form-field>
     <br>
-
+   <!-- do poprawki - enum -->
     <mat-form-field style="width:30vw">
       <mat-placeholder class="placeholder">You can update movie genre</mat-placeholder>
       <mat-select [(ngModel)]="movie.genre" name="genre">
         <mat-option *ngFor="let genre of genres" [value]="genre.value">
-          {{genre.viewValue}}
+          <!-- {{genre.viewValue}} -->
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -42,10 +42,10 @@
     </mat-form-field>
     <br><br>
 
-    <button mat-raised-button color="primary" class="delete" title="delete movie" (click)="deleteMovie(movie)">
+    <button mat-raised-button  class="delete" title="delete movie" (click)="deleteMovie(movie)">
       Delete Movie
     </button>
-    <button mat-raised-button color="primary" class="btn btn submit" (click)="updateMovie(movie)">Update Movie
+    <button mat-raised-button  class="btn btn submit" (click)="updateMovie(movie)" >Update Movie
     </button>
   </div>
 

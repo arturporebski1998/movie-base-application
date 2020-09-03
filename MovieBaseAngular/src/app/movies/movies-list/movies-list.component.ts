@@ -41,7 +41,6 @@ export class MoviesListComponent implements OnInit {
   public update(movie: Movie): void {
     this.movieService.updateMovie(movie).subscribe(movie => {
       this.reloadMovies();
-      // fajny error tylko nic nie robi :D
     });
   }
 

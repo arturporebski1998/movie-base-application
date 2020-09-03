@@ -38,7 +38,7 @@ import { LoginComponent } from './login/login.component';
     MoviesListComponent,
     MovieAddComponent,
     UsersComponent,
-    LoginComponent,
+    LoginComponent
   ],
   
   providers: [ MovieService, UserRegistrationService ],

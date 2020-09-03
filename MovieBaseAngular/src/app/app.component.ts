@@ -10,6 +10,6 @@ import { ErrorStateMatcher } from '@angular/material/core';
 })
 export class AppComponent {
 
-  title = 'Movies Base';
+  title = 'My Movies Base';
 
 }
