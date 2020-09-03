@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Movie } from '../movie';
-import { MovieService } from '../services/movie-service/movie.service';
+import { MovieService } from 'src/app/services/movie-service/movie.service';
+import { Movie } from 'src/app/movies/movie';
 import { MoviesListComponent } from '../movies-list/movies-list.component';
 
 interface Genre {

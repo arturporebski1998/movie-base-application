@@ -1,4 +1,3 @@
-// Everything with identity and authorization should be in aggregated package, add practices.identity.model, practices.identity.repository etc
 package practices.registration.model;
 
 import lombok.AllArgsConstructor;
@@ -6,22 +5,43 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
-// to samo co w przypadku movie
 @Entity
 @Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
 public class User implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private  long id;
 
-    public long getId() {
-        return id;
-    }
+    private String firstName;
+    private String lastName;
+    private String email;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @Column(nullable = false, unique = true)
+    private String username;
+    private String password;
+    private String roles;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+
+    public String getRoles() { return roles; }
+
+    public void setRoles(String roles) { this.roles = roles; }
+
+    public long getId() { return id; }
+
+    public void setId(long id) { this.id = id; }
 
     public String getEmail() {
         return email;
@@ -64,16 +84,7 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String firstName;
-    private String lastName;
 
-    private String username;
-    private String password;
-
-    private String email;
 
 }
 
