@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Movie } from '../../movies/movie';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { AuthInterceptorService } from '../auth-interceptor/auth-interceptor.service';
 
 
 @Injectable({ providedIn: 'root'})
@@ -12,8 +13,10 @@ export class MovieService {
 
   messageService: any;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient) {
     this.moviesUrl = environment.httpMovies;
+    
   }
 
   

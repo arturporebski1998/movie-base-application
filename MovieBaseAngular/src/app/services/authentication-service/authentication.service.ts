@@ -30,8 +30,6 @@ export class AuthenticationService {
     return sessionStorage.getItem('token');
   }
 
-  
-
   isUserLoggedIn() {
     let user = sessionStorage.getItem("username");
     console.log(!(user === null));

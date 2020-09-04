@@ -23,6 +23,8 @@ export class AuthInterceptorService implements HttpInterceptor {
           Authorization: `Bearer ${this.auth.getToken()}`
         }
       });
+
+
       return next.handle(request);
   }
 }
