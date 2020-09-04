@@ -19,10 +19,15 @@ public class Movie implements Serializable {
     private double avgRate;
     private String director;
     private String description;
-    @Enumerated(EnumType.STRING)
-    private ECountry country;
-    @Enumerated(EnumType.STRING)
-    private EGenre genre;
+    private String country;
+    private String genre;
+
+    //Będzie enum tylko niech najpierw zadziała apka
+//    @Enumerated(EnumType.STRING)
+//    private ECountry country;
+//    @Enumerated(EnumType.STRING)
+//    private EGenre genre;
+
     @Column(nullable = false, unique = true)
     private String title;
 
@@ -40,9 +45,9 @@ public class Movie implements Serializable {
         this.avgRate = avgRate;
     }
 
-    public EGenre getGenre() { return genre; }
-
-    public void setGenre(EGenre genre) { this.genre = genre; }
+//    public EGenre getGenre() { return genre; }
+//
+//    public void setGenre(EGenre genre) { this.genre = genre; }
 
     public String getDirector() {
         return director;
@@ -64,8 +69,24 @@ public class Movie implements Serializable {
 
     public void setTitle(String title) { this.title = title; }
 
-    public ECountry getCountry() { return country; }
+    public String getCountry() {
+        return country;
+    }
 
-    public void setCountry(ECountry country) { this.country = country; }
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+//    public ECountry getCountry() { return country; }
+//
+//    public void setCountry(ECountry country) { this.country = country; }
 
 }

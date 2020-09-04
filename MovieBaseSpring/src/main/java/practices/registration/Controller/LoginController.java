@@ -1,17 +1,14 @@
 package practices.registration.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("login")
 @RestController
-@CrossOrigin(origins = "*")
 public class LoginController {
 
-    @GetMapping
+    @PostMapping
     public String login() {
         return "authenticated succesfully";
+
     }
 }
