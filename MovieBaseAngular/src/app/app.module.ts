@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { MovieService } from './services/movie-service/movie.service';
 import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 import { MovieAddComponent } from './movies/movie-add/movie-add.component';
@@ -16,6 +16,7 @@ import { UserRegistrationService } from './services/user-registration-service/us
 import { UsersListComponent } from './users/users-list/users-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { AuthInterceptorService } from './services/auth-interceptor/auth-interceptor.service';
 
 @NgModule({
   imports: [
@@ -41,7 +42,16 @@ import { LoginComponent } from './login/login.component';
     LoginComponent
   ],
   
-  providers: [ MovieService, UserRegistrationService ],
+  providers: [ 
+    {
+      provide:HTTP_INTERCEPTORS, 
+      useClass: AuthInterceptorService, 
+      multi:true
+    },
+    MovieService, 
+    UserRegistrationService ],
   bootstrap: [ AppComponent ]
 })
+
+
 export class AppModule { }

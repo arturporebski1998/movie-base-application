@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatCardModule } from '@angular/material/card';
 const MaterialComponents = [
   MatButtonToggleModule,
   MatInputModule,
@@ -22,7 +22,8 @@ const MaterialComponents = [
   MatDividerModule,
   MatToolbarModule,
   FormsModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  MatCardModule
 ];
 
 @NgModule({

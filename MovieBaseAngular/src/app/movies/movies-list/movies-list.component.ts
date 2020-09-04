@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { MovieService } from 'src/app/services/movie-service/movie.service';
 import { Movie } from 'src/app/movies/movie';
+import { AuthenticationService } from 'src/app/services/authentication-service/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movies-list',
@@ -14,6 +16,8 @@ export class MoviesListComponent implements OnInit {
 
 
   constructor(
+    private router: Router,
+    private loginservice: AuthenticationService,
     private movieService: MovieService,
     private location: Location) {
   }
@@ -30,6 +34,7 @@ export class MoviesListComponent implements OnInit {
     this.movieService.getMovies().subscribe(data => {
       this.movies = data;
     });
+  
   }
 
   public deleteMovie(movie: Movie): void {

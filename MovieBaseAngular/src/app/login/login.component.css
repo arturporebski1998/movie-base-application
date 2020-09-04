@@ -4,9 +4,24 @@ label {
     margin-top: 10px;
 }
 
+/* .cuscontainer{
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s; }*/
+
 .card-container.card {
     max-width: 400px !important;
     padding: 40px 40px;
+    transition: 0.5s;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 2px #ccc;
+}
+
+.card-container:hover {
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
 }
 
 .card {
@@ -31,3 +46,16 @@ label {
     -webkit-border-radius: 50%;
     border-radius: 50%; */
   }
+
+  /* .cuscontainer{
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    
+    }
+  .cuscontainer:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    } */
