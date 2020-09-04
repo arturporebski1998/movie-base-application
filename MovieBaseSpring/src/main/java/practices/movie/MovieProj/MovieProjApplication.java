@@ -8,8 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-//Tu powinny zostać na ten moment tylko 3 jak nie 1 ;)
-// I to do package movie
+//Po co CrossOrigin, EntityScan, EnableConfigurationProperties, ComponentScan i EnableJpaRepositoryies?
+// I to do package movie !!!!!
 @SpringBootApplication
 @EnableConfigurationProperties
 @EntityScan(basePackages = {"practices.*"})

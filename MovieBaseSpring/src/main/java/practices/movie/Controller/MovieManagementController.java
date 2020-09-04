@@ -34,6 +34,8 @@ public class MovieManagementController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Movie> updateMovie(@PathVariable(value = "id") Long movieId,
                                              @RequestBody Movie movie) {
+
+//        Logika do serwisu, nie odwoływać się do repo
         Optional<Movie> optMovie = movieRepository.findById(movieId);
         if (optMovie.isPresent()) {
             movieService.updateMovie(movie,movieId);
@@ -44,10 +46,12 @@ public class MovieManagementController {
         }
     }
 
-
+// /{id}
     @DeleteMapping(path = "{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Movie> deleteMovie(@PathVariable("id") Long movieId) {
+
+//        Logika do serwisu
         Optional<Movie> optMovie = movieRepository.findById(movieId);
         if (optMovie.isPresent()) {
             movieService.deleteMovie(movieId);

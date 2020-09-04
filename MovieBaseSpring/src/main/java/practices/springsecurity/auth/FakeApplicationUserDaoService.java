@@ -1,5 +1,6 @@
 //package practices.springsecurity.auth;
 //
+// Co to?
 //import com.google.common.collect.Lists;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.password.PasswordEncoder;

@@ -8,6 +8,7 @@ import practices.movie.repository.MovieRepository;
 @Service
 public class MovieServiceImpl implements MovieService {
 
+//     Przez konstruktor
     @Autowired
     MovieRepository movieRepository;
 
@@ -26,6 +27,7 @@ public class MovieServiceImpl implements MovieService {
         this.movieRepository.save(movie);
     }
 
+//   Nie prościej przesłać cały obiekt z id?
     @Override
     public void updateMovie(Movie movie, Long id) {
         movie.setId(id);

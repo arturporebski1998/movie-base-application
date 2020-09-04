@@ -10,6 +10,7 @@ import practices.registration.repository.UserRepository;
 import practices.registration.service.UserService;
 
 
+// /api/users
 @RequestMapping("users")
 @RestController
 public class UserController {
@@ -27,10 +28,13 @@ public class UserController {
 
 
     @GetMapping
+//    Security
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity<User> getUsers() {
         this.userService.getUsers();
+//        po co?
         System.out.println("getUsers done");
+        //        service
         return new ResponseEntity(this.userRepository.findAll(), HttpStatus.OK);
     }
 
@@ -39,7 +43,9 @@ public class UserController {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
     public ResponseEntity<User> getUser(@PathVariable(value = "id") Long userId) {
         this.userService.getUser(userId);
+        //        po co?
         System.out.println("getUser done");
+//        service
         return new ResponseEntity(this.userRepository.findById(userId), HttpStatus.OK);
     }
 

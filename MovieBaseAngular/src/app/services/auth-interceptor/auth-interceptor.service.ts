@@ -11,20 +11,21 @@ import { Observable } from 'rxjs';
 export class AuthInterceptorService implements HttpInterceptor {
 
   constructor(
+    //    pola prywatne
     public auth: AuthenticationService,
     public movieService: MovieService,
     public userService: UserRegistrationService
-    ) { }
+  ) { }
 
-    intercept(request: HttpRequest<any>, next: HttpHandler) {
-    
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${this.auth.getToken()}`
-        }
-      });
+  intercept(request: HttpRequest<any>, next: HttpHandler) {
+
+    request = request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${this.auth.getToken()}`
+      }
+    });
 
 
-      return next.handle(request);
+    return next.handle(request);
   }
 }

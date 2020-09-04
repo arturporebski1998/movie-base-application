@@ -40,6 +40,7 @@ public class JwtTokenVerifier extends OncePerRequestFilter {
 
         try {
 
+//            do appplicaiton properties
             String secretKey = "securesecuresecuresecuresecuresecuresecuresecuresecuresecuresecure";
 
             Jws<Claims> claimsJws = Jwts.parser()

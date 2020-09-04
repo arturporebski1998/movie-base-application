@@ -27,6 +27,7 @@ public class User implements Serializable {
     private String password;
     private String roles;
 
+//    Jeden user może mieć wiele ról? Jak dla mnie user może mieć jedną role ale wiele Uprawnień
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "users_roles",

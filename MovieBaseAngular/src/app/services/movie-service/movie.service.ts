@@ -6,20 +6,21 @@ import { environment } from 'src/environments/environment';
 import { AuthInterceptorService } from '../auth-interceptor/auth-interceptor.service';
 
 
-@Injectable({ providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class MovieService {
 
   private moviesUrl: string;
-
+  //    pola prywatne
   messageService: any;
 
   constructor(
     private http: HttpClient) {
+    // można jako const zadeklarować
     this.moviesUrl = environment.httpMovies;
-    
+
   }
 
-  
+
   public getMovies(): Observable<Movie[]> {
     return this.http.get<Movie[]>(this.moviesUrl)
   }
